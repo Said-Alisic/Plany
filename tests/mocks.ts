@@ -1,4 +1,5 @@
-import * as uuid from "uuid";
+import "react-native-get-random-values";
+import { v4 as uuid } from "uuid";
 import { getRandomDateInRangePreviousToNextMonth } from "./helpers";
 import {
   uniqueNamesGenerator,
@@ -7,9 +8,10 @@ import {
 } from "unique-names-generator";
 
 // TODO: Move to an interfaces file
-interface CalendarEvent {
+export interface ICalendarEvent {
   id: string;
-  timeOfDay: Date;
+  date: Date;
+  timeOfDay: string;
   title: string;
   participants: string[]; // TODO: Create a new interface for participants with {id, name, email}
   location: string;
@@ -23,7 +25,12 @@ enum EventStatus {
   CANCELLED = "CANCELLED",
 }
 
-const createCalenderEvent = (): CalendarEvent => {
+/**
+ * Creates a calendar event with random data.
+ *
+ * @returns {ICalendarEvent} The generated calendar event.
+ */
+const createCalenderEvent = (): ICalendarEvent => {
   // Config for creating pseudo-unique adjectives
   const config: Config = {
     dictionaries: [adjectives],
@@ -33,9 +40,13 @@ const createCalenderEvent = (): CalendarEvent => {
   const randomAdjective: string = uniqueNamesGenerator(config);
 
   return {
-    id: uuid.v4(),
-    timeOfDay: getRandomDateInRangePreviousToNextMonth(),
-    title: randomAdjective + " Event",
+    id: uuid(),
+    date: getRandomDateInRangePreviousToNextMonth(),
+    timeOfDay: getRandomDateInRangePreviousToNextMonth().toLocaleTimeString(),
+    title:
+      randomAdjective.charAt(0).toUpperCase() +
+      randomAdjective.slice(1) +
+      " Event",
     participants: [
       (Math.floor(Math.random() * 100) + 1).toString(),
       (Math.floor(Math.random() * 100) + 1).toString(),
@@ -48,8 +59,8 @@ const createCalenderEvent = (): CalendarEvent => {
 
 export const mockCalendarEvents = (
   numOfEventsMocks: number
-): CalendarEvent[] => {
-  const calendarEvents: CalendarEvent[] = [];
+): ICalendarEvent[] => {
+  const calendarEvents: ICalendarEvent[] = [];
 
   for (let i = 0; i < numOfEventsMocks; i++) {
     calendarEvents.push(createCalenderEvent());
