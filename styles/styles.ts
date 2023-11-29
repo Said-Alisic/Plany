@@ -37,4 +37,12 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  eventInfoContainer: {
+    marginTop: 70,
+    marginBottom: 25,
+    backgroundColor: "#000000",
+    color: "#ffffff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
