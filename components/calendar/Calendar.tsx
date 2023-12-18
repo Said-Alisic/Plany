@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
@@ -8,6 +8,7 @@ import { styles } from "../../styles/styles";
 import moment, { Moment } from "moment";
 import SelectDropdown from "react-native-select-dropdown";
 import EventInfo from "./EventInfo";
+import { Divider, Text } from "react-native-paper";
 
 export default function Calendar() {
   const selectDropdownRef = useRef<SelectDropdown>(null);
@@ -50,26 +51,29 @@ export default function Calendar() {
   return (
     <View style={styles.calendarContainer}>
       <CalendarPicker onDateChange={handleDateChange} />
-      <Text style={styles.dateText}>
-        Events Found: {selectedEvents.length || "No events found"}
-      </Text>
-      <SelectDropdown
-        ref={selectDropdownRef}
-        disabled={selectedEvents.length < 1}
-        data={selectedEvents}
-        onSelect={(event) => {
-          setSelectedEvent(event);
-        }}
-        buttonTextAfterSelection={(event) => {
-          return event.title;
-        }}
-        rowTextForSelection={(event) => {
-          return event.title;
-        }}
-      />
-      {selectedEvent && selectedEvents.length > 0 ? (
-        <EventInfo event={selectedEvent} />
-      ) : null}
+      <Divider style={styles.dividerMargin} />
+      <View style={styles.eventSelectInputContainer}>
+        <Text style={styles.dateText}>
+          Events Found: {selectedEvents.length || "No events found"}
+        </Text>
+        <SelectDropdown
+          ref={selectDropdownRef}
+          disabled={selectedEvents.length < 1}
+          data={selectedEvents}
+          onSelect={(event) => {
+            setSelectedEvent(event);
+          }}
+          buttonTextAfterSelection={(event) => {
+            return event.title;
+          }}
+          rowTextForSelection={(event) => {
+            return event.title;
+          }}
+        />
+        {selectedEvent && selectedEvents.length > 0 ? (
+          <EventInfo event={selectedEvent} />
+        ) : null}
+      </View>
     </View>
   );
 }

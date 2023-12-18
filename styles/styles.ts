@@ -32,10 +32,7 @@ export const styles = StyleSheet.create({
   },
   calendarContainer: {
     marginTop: 50,
-    marginBottom: 25,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    marginBottom: 50,
   },
   eventInfoContainer: {
     marginTop: 50,
@@ -43,5 +40,12 @@ export const styles = StyleSheet.create({
     // backgroundColor: "#000000",
     alignItems: "flex-start",
     justifyContent: "center",
+  },
+  eventSelectInputContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  dividerMargin: {
+    marginTop: 25,
   },
 });
