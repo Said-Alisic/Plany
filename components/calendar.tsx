@@ -2,15 +2,19 @@ import { View, Text } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
-import SelectDropdown from "react-native-select-dropdown";
 import { ICalendarEvent, mockCalendarEvents } from "../tests/mocks";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { styles } from "../styles/styles";
 import moment, { Moment } from "moment";
+import SelectDropdown, {
+  SelectDropdownProps,
+} from "react-native-select-dropdown";
 import EventInfo from "./EventInfo";
 
 export default function Calendar() {
-  const [selectedStartDate, setSelectedStartDate] = useState<Moment | null>(
+  const selectDropdownRef = useRef<SelectDropdown>(null);
+
+  const [selectedEvent, setSelectedEvent] = useState<ICalendarEvent | null>(
     null
   );
 
@@ -19,29 +23,25 @@ export default function Calendar() {
   const [events, setEvents] = useState<ICalendarEvent[]>([]);
 
   const handleDateChange: DateChangedCallback = (date: Moment) => {
-    setSelectedStartDate((prevDate) => {
-      const selectedDate = date || prevDate; // Use the new date if available, or fallback to the previous date
-      const startDate: string = selectedDate
-        ? moment(selectedDate).format("YYYY-MM-DD").toString()
-        : "";
+    const selectedDate = date; // Use the new date if available, or fallback to the previous date
+    const startDate: string = selectedDate
+      ? moment(selectedDate).format("YYYY-MM-DD").toString()
+      : "";
 
-      const selectedDateEvents: ICalendarEvent[] = events.filter(
-        (event) => moment(event.date).format("YYYY-MM-DD") === startDate
-      );
+    const selectedDateEvents: ICalendarEvent[] = events.filter(
+      (event) => moment(event.date).format("YYYY-MM-DD") === startDate
+    );
 
-      // NOTE: Removes the selected event
-      // setSelectedEvent(null);
+    selectDropdownRef.current?.reset();
 
-      if (selectedDateEvents.length > 0) {
-        setSelectedEvents(selectedDateEvents);
-      } else {
-        setSelectedEvents([]);
-      }
+    // NOTE: Removes the selected event
+    setSelectedEvent(null);
 
-      console.log(selectedDateEvents);
-
-      return selectedDate;
-    });
+    if (selectedDateEvents.length > 0) {
+      setSelectedEvents(selectedDateEvents);
+    } else {
+      setSelectedEvents([]);
+    }
   };
 
   useEffect(() => {
@@ -49,34 +49,29 @@ export default function Calendar() {
     setEvents(mockCalendarEvents(200));
   }, []);
 
-  // TODO: Check if necessary anywhere when refactoring
-  // const startDate: string = selectedStartDate
-  //   ? moment(selectedStartDate).format("YYYY-MM-DD").toString()
-  //   : "";
-
   return (
     <View style={styles.calendarContainer}>
       <CalendarPicker onDateChange={handleDateChange} />
       <Text style={styles.dateText}>
         Events Found: {selectedEvents.length || "No events found"}
       </Text>
-      {/* <EventSelectInput/> */}
-      {/* <SelectDropdown
+      <SelectDropdown
+        ref={selectDropdownRef}
         disabled={selectedEvents.length < 1}
         data={selectedEvents}
-        onSelect={(selectedItem) => {
-          setSelectedEvent(selectedItem);
+        onSelect={(event) => {
+          setSelectedEvent(event);
         }}
-        buttonTextAfterSelection={(selectedItem) => {
-          return selectedItem.title;
+        buttonTextAfterSelection={(event) => {
+          return event.title;
         }}
-        rowTextForSelection={(item) => {
-          return item.title;
+        rowTextForSelection={(event) => {
+          return event.title;
         }}
       />
       {selectedEvent && selectedEvents.length > 0 ? (
         <EventInfo event={selectedEvent} />
-      ) : null} */}
+      ) : null}
     </View>
   );
 }
