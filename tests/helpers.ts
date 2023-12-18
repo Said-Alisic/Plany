@@ -22,3 +22,7 @@ export const getRandomDateInRangePreviousToNextMonth = (): Date => {
 
   return randomDate;
 };
+
+export const capitalizeString = (s: string): string => {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
