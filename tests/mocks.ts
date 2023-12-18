@@ -1,6 +1,9 @@
 import "react-native-get-random-values";
 import { v4 as uuid } from "uuid";
-import { getRandomDateInRangePreviousToNextMonth } from "./helpers";
+import {
+  capitalizeString,
+  getRandomDateInRangePreviousToNextMonth,
+} from "./helpers";
 import {
   uniqueNamesGenerator,
   Config,
@@ -42,17 +45,20 @@ const createCalenderEvent = (): ICalendarEvent => {
   return {
     id: uuid(),
     date: getRandomDateInRangePreviousToNextMonth(),
-    timeOfDay: getRandomDateInRangePreviousToNextMonth().toLocaleTimeString(),
-    title:
-      randomAdjective.charAt(0).toUpperCase() +
-      randomAdjective.slice(1) +
-      " Event",
+    timeOfDay: getRandomDateInRangePreviousToNextMonth().toLocaleTimeString(
+      "en-US",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+      }
+    ),
+    title: capitalizeString(randomAdjective) + " Event",
     participants: [
       (Math.floor(Math.random() * 100) + 1).toString(),
       (Math.floor(Math.random() * 100) + 1).toString(),
       (Math.floor(Math.random() * 100) + 1).toString(),
     ],
-    location: randomAdjective + " Location",
+    location: capitalizeString(randomAdjective) + " Location",
     status: EventStatus.ACTIVE,
   };
 };

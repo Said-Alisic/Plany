@@ -38,11 +38,10 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   eventInfoContainer: {
-    marginTop: 70,
-    marginBottom: 25,
-    backgroundColor: "#000000",
-    color: "#ffffff",
-    alignItems: "center",
+    marginTop: 50,
+    marginBottom: 50,
+    // backgroundColor: "#000000",
+    alignItems: "flex-start",
     justifyContent: "center",
   },
 });
