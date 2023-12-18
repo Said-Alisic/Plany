@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
-import { styles } from "../styles/styles";
-import { ICalendarEvent } from "../tests/mocks";
+import { styles } from "../../styles/styles";
+import { ICalendarEvent } from "../../tests/mocks";
 
 interface EventInfoProps {
   event: ICalendarEvent;

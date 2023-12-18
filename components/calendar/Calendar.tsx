@@ -2,13 +2,11 @@ import { View, Text } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
-import { ICalendarEvent, mockCalendarEvents } from "../tests/mocks";
+import { ICalendarEvent, mockCalendarEvents } from "../../tests/mocks";
 import { useEffect, useRef, useState } from "react";
-import { styles } from "../styles/styles";
+import { styles } from "../../styles/styles";
 import moment, { Moment } from "moment";
-import SelectDropdown, {
-  SelectDropdownProps,
-} from "react-native-select-dropdown";
+import SelectDropdown from "react-native-select-dropdown";
 import EventInfo from "./EventInfo";
 
 export default function Calendar() {
