@@ -4,6 +4,9 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  dividerMargin: {
+    marginTop: 25,
+  },
   headerContainer: {
     marginTop: 100,
     marginBottom: 25,
@@ -32,16 +35,31 @@ export const styles = StyleSheet.create({
   },
   calendarContainer: {
     marginTop: 50,
-    marginBottom: 25,
-    backgroundColor: "#fff",
+    marginBottom: 50,
+  },
+  eventSelectInputContainer: {
     alignItems: "center",
     justifyContent: "center",
   },
   eventInfoContainer: {
     marginTop: 50,
     marginBottom: 50,
-    // backgroundColor: "#000000",
+    backgroundColor: "#9fb5cc",
+    width: "95%",
+  },
+  eventInfoCardTitle: {
     alignItems: "flex-start",
-    justifyContent: "center",
+  },
+  eventInfoCardContent: {
+    alignItems: "flex-start",
+  },
+  fontWeightBold: {
+    fontWeight: "bold",
+  },
+  mb25: {
+    marginBottom: 25,
+  },
+  mt25: {
+    marginTop: 25,
   },
 });

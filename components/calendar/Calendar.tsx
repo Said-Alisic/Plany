@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
@@ -8,6 +8,7 @@ import { styles } from "../../styles/styles";
 import moment, { Moment } from "moment";
 import SelectDropdown from "react-native-select-dropdown";
 import EventInfo from "./EventInfo";
+import { Divider, Text } from "react-native-paper";
 
 export default function Calendar() {
   const selectDropdownRef = useRef<SelectDropdown>(null);
@@ -49,27 +50,58 @@ export default function Calendar() {
 
   return (
     <View style={styles.calendarContainer}>
-      <CalendarPicker onDateChange={handleDateChange} />
-      <Text style={styles.dateText}>
-        Events Found: {selectedEvents.length || "No events found"}
-      </Text>
-      <SelectDropdown
-        ref={selectDropdownRef}
-        disabled={selectedEvents.length < 1}
-        data={selectedEvents}
-        onSelect={(event) => {
-          setSelectedEvent(event);
+      <CalendarPicker
+        todayBackgroundColor="#f7d7e1"
+        todayTextStyle={{ color: "#000000" }}
+        selectedDayTextStyle={{
+          color: "#000000",
+          fontWeight: "300",
         }}
-        buttonTextAfterSelection={(event) => {
-          return event.title;
+        selectedDayStyle={{ backgroundColor: "#9fb5cc" }}
+        textStyle={{ color: "#000000" }}
+        onDateChange={handleDateChange}
+        nextTitleStyle={{
+          fontWeight: "bold",
+          fontSize: 15,
         }}
-        rowTextForSelection={(event) => {
-          return event.title;
+        previousTitleStyle={{
+          fontWeight: "bold",
+          fontSize: 15,
         }}
+        monthTitleStyle={{ fontWeight: "bold", fontSize: 25 }}
+        yearTitleStyle={{ fontWeight: "bold", fontSize: 25 }}
       />
-      {selectedEvent && selectedEvents.length > 0 ? (
-        <EventInfo event={selectedEvent} />
-      ) : null}
+      <Divider style={styles.dividerMargin} />
+      <View style={styles.eventSelectInputContainer}>
+        <Text style={styles.dateText}>
+          Events Found: {selectedEvents.length || "No events found"}
+        </Text>
+        <SelectDropdown
+          buttonStyle={{
+            backgroundColor: "#9fb5cc",
+            borderRadius: 10,
+            opacity: selectedEvents.length < 1 ? 0.5 : 1,
+          }}
+          dropdownStyle={{
+            borderRadius: 10,
+          }}
+          ref={selectDropdownRef}
+          disabled={selectedEvents.length < 1}
+          data={selectedEvents}
+          onSelect={(event) => {
+            setSelectedEvent(event);
+          }}
+          buttonTextAfterSelection={(event) => {
+            return event.title;
+          }}
+          rowTextForSelection={(event) => {
+            return event.title;
+          }}
+        />
+        {selectedEvent && selectedEvents.length > 0 ? (
+          <EventInfo event={selectedEvent} />
+        ) : null}
+      </View>
     </View>
   );
 }
