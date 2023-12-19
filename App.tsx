@@ -10,9 +10,8 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <ScrollView style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar hidden={true} />
         <AppHeader />
-
         <Calendar />
       </ScrollView>
     </SafeAreaProvider>
