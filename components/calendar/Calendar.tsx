@@ -50,13 +50,41 @@ export default function Calendar() {
 
   return (
     <View style={styles.calendarContainer}>
-      <CalendarPicker onDateChange={handleDateChange} />
+      <CalendarPicker
+        todayBackgroundColor="#f7d7e1"
+        todayTextStyle={{ color: "#000000" }}
+        selectedDayTextStyle={{
+          color: "#000000",
+          fontWeight: "300",
+        }}
+        selectedDayStyle={{ backgroundColor: "#9fb5cc" }}
+        textStyle={{ color: "#000000" }}
+        onDateChange={handleDateChange}
+        nextTitleStyle={{
+          fontWeight: "bold",
+          fontSize: 15,
+        }}
+        previousTitleStyle={{
+          fontWeight: "bold",
+          fontSize: 15,
+        }}
+        monthTitleStyle={{ fontWeight: "bold", fontSize: 25 }}
+        yearTitleStyle={{ fontWeight: "bold", fontSize: 25 }}
+      />
       <Divider style={styles.dividerMargin} />
       <View style={styles.eventSelectInputContainer}>
         <Text style={styles.dateText}>
           Events Found: {selectedEvents.length || "No events found"}
         </Text>
         <SelectDropdown
+          buttonStyle={{
+            backgroundColor: "#9fb5cc",
+            borderRadius: 10,
+            opacity: selectedEvents.length < 1 ? 0.5 : 1,
+          }}
+          dropdownStyle={{
+            borderRadius: 10,
+          }}
           ref={selectDropdownRef}
           disabled={selectedEvents.length < 1}
           data={selectedEvents}
