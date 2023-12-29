@@ -1,52 +1,55 @@
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
-import { ICalendarEvent, mockCalendarEvents } from "../../tests/mocks";
 import { useEffect, useRef, useState } from "react";
 import { styles } from "../../styles/styles";
 import moment, { Moment } from "moment";
 import SelectDropdown from "react-native-select-dropdown";
 import EventInfo from "./EventInfo";
 import { Divider, Text } from "react-native-paper";
+import { ICalendarEvent } from "../../common/interfaces";
+import axios from "axios";
+import { PlanyApiEndpoints } from "../../common/enums";
 
 export default function Calendar() {
   const selectDropdownRef = useRef<SelectDropdown>(null);
-
   const [selectedEvent, setSelectedEvent] = useState<ICalendarEvent | null>(
     null
   );
-
   const [selectedEvents, setSelectedEvents] = useState<ICalendarEvent[]>([]);
 
-  const [events, setEvents] = useState<ICalendarEvent[]>([]);
-
-  const handleDateChange: DateChangedCallback = (date: Moment) => {
-    const selectedDate = date; // Use the new date if available, or fallback to the previous date
-    const startDate: string = selectedDate
-      ? moment(selectedDate).format("YYYY-MM-DD").toString()
+  const handleDateChange: DateChangedCallback = async (date: Moment) => {
+    const startDate: string = date
+      ? moment(date).format("YYYY-MM-DD").toString()
       : "";
-
-    const selectedDateEvents: ICalendarEvent[] = events.filter(
-      (event) => moment(event.date).format("YYYY-MM-DD") === startDate
-    );
 
     selectDropdownRef.current?.reset();
 
     // NOTE: Removes the selected event
     setSelectedEvent(null);
 
-    if (selectedDateEvents.length > 0) {
-      setSelectedEvents(selectedDateEvents);
-    } else {
-      setSelectedEvents([]);
-    }
-  };
+    await axios
+      .get(PlanyApiEndpoints.CALENDAR_EVENTS, {
+        params: { date: startDate },
+      })
+      .then((response) => {
+        const selectedDateEvents: ICalendarEvent[] = response.data.filter(
+          (item: ICalendarEvent) =>
+            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate
+        );
 
-  useEffect(() => {
-    // Initialize events only once when the component mounts
-    setEvents(mockCalendarEvents(200));
-  }, []);
+        setSelectedEvents(selectedDateEvents);
+      })
+      .catch((error) => {
+        setSelectedEvents([]);
+
+        console.error(
+          `An error occurred at${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
+          error.message
+        );
+      });
+  };
 
   return (
     <View style={styles.calendarContainer}>
