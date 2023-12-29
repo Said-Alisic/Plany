@@ -1,17 +1,25 @@
-import { View } from "react-native";
+import {
+  formatDateTimeStringToDate,
+  formatDateTimeToHoursAndMinutes,
+  formatStringToTitleCase,
+} from "../../common/helpers";
+import { ICalendarEvent } from "../../common/interfaces";
 import { styles } from "../../styles/styles";
-import { ICalendarEvent } from "../../tests/mocks";
-import { Button, Card, Text } from "react-native-paper";
+import { Card, Text } from "react-native-paper";
 
 interface EventInfoProps {
   event: ICalendarEvent;
 }
 
 export default function EventInfo(props: EventInfoProps) {
+  const calendarEvent: ICalendarEvent = {
+    ...props.event,
+  };
+
   return (
     <Card style={styles.eventInfoContainer}>
       <Card.Title
-        title={props.event.title}
+        title={calendarEvent.title}
         titleStyle={styles.fontWeightBold}
         titleVariant="titleLarge"
       />
@@ -20,20 +28,24 @@ export default function EventInfo(props: EventInfoProps) {
           Date
         </Text>
         <Text variant="bodyMedium">
-          {props.event.date.toLocaleDateString("en-GB", { weekday: "long" })}
+          {formatDateTimeStringToDate(calendarEvent.dateAndTime)}
         </Text>
         <Text variant="titleMedium" style={styles.fontWeightBold}>
           Time of Day
         </Text>
-        <Text variant="bodyMedium">{props.event.timeOfDay}</Text>
+        <Text variant="bodyMedium">
+          {formatDateTimeToHoursAndMinutes(calendarEvent.dateAndTime)}
+        </Text>
         <Text variant="titleMedium" style={styles.fontWeightBold}>
           Location
         </Text>
-        <Text variant="bodyMedium">{props.event.location}</Text>
+        <Text variant="bodyMedium">{calendarEvent.location}</Text>
         <Text variant="titleMedium" style={styles.fontWeightBold}>
           Status
         </Text>
-        <Text variant="bodyMedium">{props.event.status}</Text>
+        <Text variant="bodyMedium">
+          {formatStringToTitleCase(calendarEvent.status)}
+        </Text>
       </Card.Content>
     </Card>
   );

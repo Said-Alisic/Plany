@@ -3,7 +3,7 @@ import { IParticipant } from "./";
 
 export interface ICalendarEvent {
   id: string;
-  date: Date;
+  dateAndTime: string;
   title: string;
   location: string;
   status: CalendarEventStatus;
