@@ -9,12 +9,6 @@ on:
       - "**.tsx"
       - "**.js"
       - "**.jsx"
-  push:
-    paths:
-      - "**.ts"
-      - "**.tsx"
-      - "**.js"
-      - "**.jsx"
 
 jobs:
   react-native-lint:

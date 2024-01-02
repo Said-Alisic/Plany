@@ -8,16 +8,10 @@ on:
       - "**.ts"
       - "**.tsx"
       - "**.json"
-  push:
-    paths:
-      - "**.ts"
-      - "**.tsx"
-      - "**.json"
 
 jobs:
   react-native-format:
     if: github.event.pull_request.draft == false || contains(github.event_name, 'workflow_dispatch')
-
     # Setup runner - `ubuntu-22.04` is as of 12/2023 the latest LTS ubuntu runner
     runs-on: ubuntu-22.04
 
