@@ -8,7 +8,7 @@ export const selectDropdownStyles = StyleSheet.create({
 });
 
 export const selectDropdownButtonStyle = (
-  selectedEvents: ICalendarEvent[]
+  selectedEvents: ICalendarEvent[],
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 ) => {
   return StyleSheet.create({

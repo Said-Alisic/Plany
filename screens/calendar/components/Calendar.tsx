@@ -20,7 +20,7 @@ import {
 export default function Calendar(): JSX.Element {
   const selectDropdownRef = useRef<SelectDropdown>(null);
   const [selectedEvent, setSelectedEvent] = useState<ICalendarEvent | null>(
-    null
+    null,
   );
   const [selectedEvents, setSelectedEvents] = useState<ICalendarEvent[]>([]);
 
@@ -41,7 +41,7 @@ export default function Calendar(): JSX.Element {
       .then((response) => {
         const selectedDateEvents: ICalendarEvent[] = response.data.filter(
           (item: ICalendarEvent) =>
-            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate
+            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate,
         );
 
         setSelectedEvents(selectedDateEvents);
@@ -51,7 +51,7 @@ export default function Calendar(): JSX.Element {
 
         console.error(
           `An error occurred at${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
-          error.message
+          error.message,
         );
       });
   };
