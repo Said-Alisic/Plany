@@ -1,16 +1,16 @@
-import { Alert, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
-import { useEffect, useRef, useState } from "react";
-import { styles } from "../../styles/styles";
+import { useRef, useState } from "react";
 import moment, { Moment } from "moment";
 import SelectDropdown from "react-native-select-dropdown";
 import EventInfo from "./EventInfo";
 import { Divider, Text } from "react-native-paper";
-import { ICalendarEvent } from "../../common/interfaces";
 import axios from "axios";
-import { PlanyApiEndpoints } from "../../common/enums";
+import { PlanyApiEndpoints } from "../../../common/enums";
+import { ICalendarEvent } from "../../../common/interfaces";
+import { styles } from "../../../styles/styles";
 
 export default function Calendar() {
   const selectDropdownRef = useRef<SelectDropdown>(null);

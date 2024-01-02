@@ -6,11 +6,11 @@ export const styles = StyleSheet.create({
   },
   dividerMargin: {
     marginTop: 25,
+    backgroundColor: "#808080",
   },
   headerContainer: {
     marginTop: 100,
     marginBottom: 25,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
