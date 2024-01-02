@@ -6,7 +6,7 @@ interface AppHeaderProps {
   subText: string;
 }
 
-export default function AppHeader(props: AppHeaderProps) {
+export default function AppHeader(props: AppHeaderProps): JSX.Element {
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.headerText}>{props.headerText}</Text>

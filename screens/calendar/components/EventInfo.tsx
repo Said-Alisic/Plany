@@ -11,7 +11,7 @@ interface EventInfoProps {
   event: ICalendarEvent;
 }
 
-export default function EventInfo(props: EventInfoProps) {
+export default function EventInfo(props: EventInfoProps): JSX.Element {
   const calendarEvent: ICalendarEvent = {
     ...props.event,
   };

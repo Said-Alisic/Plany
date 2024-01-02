@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { View } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
@@ -11,11 +11,16 @@ import axios from "axios";
 import { PlanyApiEndpoints } from "../../../common/enums";
 import { ICalendarEvent } from "../../../common/interfaces";
 import { styles } from "../../../styles/styles";
+import { calendarPickerStyles } from "../../../styles/calendar-picker-styles";
+import {
+  selectDropdownButtonStyle,
+  selectDropdownStyles,
+} from "../../../styles/select-dropdown-styles";
 
-export default function Calendar() {
+export default function Calendar(): JSX.Element {
   const selectDropdownRef = useRef<SelectDropdown>(null);
   const [selectedEvent, setSelectedEvent] = useState<ICalendarEvent | null>(
-    null
+    null,
   );
   const [selectedEvents, setSelectedEvents] = useState<ICalendarEvent[]>([]);
 
@@ -36,7 +41,7 @@ export default function Calendar() {
       .then((response) => {
         const selectedDateEvents: ICalendarEvent[] = response.data.filter(
           (item: ICalendarEvent) =>
-            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate
+            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate,
         );
 
         setSelectedEvents(selectedDateEvents);
@@ -46,7 +51,7 @@ export default function Calendar() {
 
         console.error(
           `An error occurred at${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
-          error.message
+          error.message,
         );
       });
   };
@@ -54,25 +59,16 @@ export default function Calendar() {
   return (
     <View style={styles.calendarContainer}>
       <CalendarPicker
-        todayBackgroundColor="#f7d7e1"
-        todayTextStyle={{ color: "#000000" }}
-        selectedDayTextStyle={{
-          color: "#000000",
-          fontWeight: "300",
-        }}
-        selectedDayStyle={{ backgroundColor: "#9fb5cc" }}
-        textStyle={{ color: "#000000" }}
         onDateChange={handleDateChange}
-        nextTitleStyle={{
-          fontWeight: "bold",
-          fontSize: 15,
-        }}
-        previousTitleStyle={{
-          fontWeight: "bold",
-          fontSize: 15,
-        }}
-        monthTitleStyle={{ fontWeight: "bold", fontSize: 25 }}
-        yearTitleStyle={{ fontWeight: "bold", fontSize: 25 }}
+        todayBackgroundColor={calendarPickerStyles.todayBackgroundColor.color}
+        todayTextStyle={calendarPickerStyles.todayTextStyle}
+        selectedDayTextStyle={calendarPickerStyles.selectedDayTextStyle}
+        selectedDayStyle={calendarPickerStyles.selectedDayStyle}
+        textStyle={calendarPickerStyles.textStyle}
+        nextTitleStyle={calendarPickerStyles.nextTitleStyle}
+        previousTitleStyle={calendarPickerStyles.previousTitleStyle}
+        monthTitleStyle={calendarPickerStyles.monthTitleStyle}
+        yearTitleStyle={calendarPickerStyles.yearTitleStyle}
       />
       <Divider style={styles.dividerMargin} />
       <View style={styles.eventSelectInputContainer}>
@@ -80,14 +76,8 @@ export default function Calendar() {
           Events Found: {selectedEvents.length || "No events found"}
         </Text>
         <SelectDropdown
-          buttonStyle={{
-            backgroundColor: "#9fb5cc",
-            borderRadius: 10,
-            opacity: selectedEvents.length < 1 ? 0.5 : 1,
-          }}
-          dropdownStyle={{
-            borderRadius: 10,
-          }}
+          buttonStyle={selectDropdownButtonStyle(selectedEvents).buttonStyle}
+          dropdownStyle={selectDropdownStyles.dropdownStyle}
           ref={selectDropdownRef}
           disabled={selectedEvents.length < 1}
           data={selectedEvents}

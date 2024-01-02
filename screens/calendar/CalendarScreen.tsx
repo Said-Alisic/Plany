@@ -1,10 +1,10 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView } from "react-native";
 import React from "react";
 import { AppHeader } from "../../components";
 import Calendar from "./components/Calendar";
 import { styles } from "../../styles/styles";
 
-export default function CalendarScreen() {
+export default function CalendarScreen(): JSX.Element {
   const appHeaderText = "Plany";
   const appSubText = "Mobile App for tracking events in a calendar";
 
