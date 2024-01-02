@@ -1,16 +1,17 @@
 export const formatDateTimeStringToDate = (datetime: string): string => {
   const dateObj = new Date(datetime);
 
-  return dateObj.toLocaleDateString("en-GB", {
-    weekday: "long",
+  return dateObj.toLocaleDateString("en-DK", {
+    dateStyle: "short",
   });
 };
 
 export const formatDateTimeToHoursAndMinutes = (datetime: string): string => {
   const dateObj = new Date(datetime);
 
-  const hours = dateObj.getHours();
-  const minutes = dateObj.getMinutes();
-
-  return hours + ":" + minutes;
+  return dateObj.toLocaleTimeString("en-DK", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "GMT",
+  });
 };
