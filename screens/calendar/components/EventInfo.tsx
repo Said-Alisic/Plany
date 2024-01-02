@@ -1,11 +1,11 @@
+import { Card, Text } from "react-native-paper";
+import { ICalendarEvent } from "../../../common/interfaces";
+import { styles } from "../../../styles/styles";
 import {
   formatDateTimeStringToDate,
   formatDateTimeToHoursAndMinutes,
   formatStringToTitleCase,
-} from "../../common/helpers";
-import { ICalendarEvent } from "../../common/interfaces";
-import { styles } from "../../styles/styles";
-import { Card, Text } from "react-native-paper";
+} from "../../../common/helpers";
 
 interface EventInfoProps {
   event: ICalendarEvent;
