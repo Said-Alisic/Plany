@@ -11,11 +11,11 @@ export const calendarPickerStyles = StyleSheet.create({
   todayBackgroundColor: { color: "#f7d7e1" },
   nextTitleStyle: {
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 17.5,
   },
   previousTitleStyle: {
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 17.5,
   },
   monthTitleStyle: { fontWeight: "bold", fontSize: 25 },
   yearTitleStyle: { fontWeight: "bold", fontSize: 25 },

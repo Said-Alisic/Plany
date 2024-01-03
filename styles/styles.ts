@@ -8,24 +8,22 @@ export const styles = StyleSheet.create({
     marginTop: 25,
     backgroundColor: "#808080",
   },
-  headerContainer: {
-    marginTop: 100,
-    marginBottom: 25,
-    alignItems: "center",
-    justifyContent: "center",
+  appHeaderContainer: {
+    marginTop: 60,
+    marginLeft: 10,
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
   },
-  headerText: {
-    textAlign: "center",
+  appHeaderText: {
     fontSize: 24,
     fontWeight: "bold",
     color: "#000000",
-    marginBottom: 10,
+    marginBottom: 5,
   },
-  subText: {
-    textAlign: "center",
-    fontSize: 16,
-    fontStyle: "italic",
-    color: "#808080",
+  appHeaderSubText: {
+    fontSize: 20,
+    fontWeight: "500",
+    color: "#000000",
   },
   dateText: {
     marginTop: 50,
@@ -34,7 +32,7 @@ export const styles = StyleSheet.create({
     color: "#000000",
   },
   calendarContainer: {
-    marginTop: 50,
+    marginTop: 20,
     marginBottom: 50,
   },
   eventSelectInputContainer: {

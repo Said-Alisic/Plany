@@ -8,9 +8,9 @@ interface AppHeaderProps {
 
 export default function AppHeader(props: AppHeaderProps): JSX.Element {
   return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>{props.headerText}</Text>
-      <Text style={styles.subText}>{props.subText}</Text>
+    <View style={styles.appHeaderContainer}>
+      <Text style={styles.appHeaderText}>{props.headerText}</Text>
+      <Text style={styles.appHeaderSubText}>{props.subText}</Text>
     </View>
   );
 }

@@ -6,7 +6,7 @@ import { styles } from "../../styles/styles";
 
 export default function CalendarScreen(): JSX.Element {
   const appHeaderText = "Plany";
-  const appSubText = "Mobile App for tracking events in a calendar";
+  const appSubText = "Calendar";
 
   return (
     <ScrollView style={styles.container}>
