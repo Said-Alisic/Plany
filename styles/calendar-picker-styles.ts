@@ -10,13 +10,15 @@ export const calendarPickerStyles = StyleSheet.create({
   textStyle: { color: "#000000" },
   todayBackgroundColor: { color: "#f7d7e1" },
   nextTitleStyle: {
-    fontWeight: "bold",
-    fontSize: 17.5,
+    fontWeight: "500",
+    fontSize: 20,
   },
   previousTitleStyle: {
-    fontWeight: "bold",
-    fontSize: 17.5,
+    fontWeight: "500",
+    fontSize: 20,
   },
-  monthTitleStyle: { fontWeight: "bold", fontSize: 25 },
-  yearTitleStyle: { fontWeight: "bold", fontSize: 25 },
+  monthTitleStyle: { fontWeight: "bold", fontSize: 22 },
+  yearTitleStyle: { fontWeight: "bold", fontSize: 22 },
+  headerWrapperStyle: { width: "90%" },
+  dayLabelsWrapper: { width: "100%" },
 });

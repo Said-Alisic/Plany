@@ -7,6 +7,7 @@ import moment, { Moment } from "moment";
 import SelectDropdown from "react-native-select-dropdown";
 import EventInfo from "./EventInfo";
 import { Divider, Text } from "react-native-paper";
+import Icon from "react-native-vector-icons/Ionicons";
 import axios from "axios";
 import { PlanyApiEndpoints } from "../../../common/enums";
 import { ICalendarEvent } from "../../../common/interfaces";
@@ -20,7 +21,7 @@ import {
 export default function Calendar(): JSX.Element {
   const selectDropdownRef = useRef<SelectDropdown>(null);
   const [selectedEvent, setSelectedEvent] = useState<ICalendarEvent | null>(
-    null,
+    null
   );
   const [selectedEvents, setSelectedEvents] = useState<ICalendarEvent[]>([]);
 
@@ -41,7 +42,7 @@ export default function Calendar(): JSX.Element {
       .then((response) => {
         const selectedDateEvents: ICalendarEvent[] = response.data.filter(
           (item: ICalendarEvent) =>
-            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate,
+            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate
         );
 
         setSelectedEvents(selectedDateEvents);
@@ -51,7 +52,7 @@ export default function Calendar(): JSX.Element {
 
         console.error(
           `An error occurred at${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
-          error.message,
+          error.message
         );
       });
   };
@@ -65,10 +66,12 @@ export default function Calendar(): JSX.Element {
         selectedDayTextStyle={calendarPickerStyles.selectedDayTextStyle}
         selectedDayStyle={calendarPickerStyles.selectedDayStyle}
         textStyle={calendarPickerStyles.textStyle}
-        nextTitleStyle={calendarPickerStyles.nextTitleStyle}
-        previousTitleStyle={calendarPickerStyles.previousTitleStyle}
         monthTitleStyle={calendarPickerStyles.monthTitleStyle}
         yearTitleStyle={calendarPickerStyles.yearTitleStyle}
+        headerWrapperStyle={calendarPickerStyles.headerWrapperStyle}
+        dayLabelsWrapper={calendarPickerStyles.dayLabelsWrapper}
+        nextComponent={<Icon name="chevron-forward-sharp" size={25} />}
+        previousComponent={<Icon name="chevron-back-sharp" size={25} />}
       />
       <Divider style={styles.dividerMargin} />
       <View style={styles.eventSelectInputContainer}>
