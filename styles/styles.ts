@@ -61,4 +61,17 @@ export const styles = StyleSheet.create({
   mt25: {
     marginTop: 25,
   },
+  mb10: {
+    marginBottom: 10,
+  },
+  mt10: {
+    marginTop: 10,
+  },
+  ml10: {
+    marginLeft: 10,
+  },
+  mr10: {
+    marginRight: 10,
+  },
+  inlineItems: { flexDirection: "row", alignItems: "center" },
 });

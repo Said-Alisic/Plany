@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import { AppHeader } from "../../components";
 import Calendar from "./components/Calendar";
@@ -9,9 +9,9 @@ export default function CalendarScreen(): JSX.Element {
   const appSubText = "Calendar";
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <AppHeader headerText={appHeaderText} subText={appSubText} />
       <Calendar />
-    </ScrollView>
+    </View>
   );
 }
