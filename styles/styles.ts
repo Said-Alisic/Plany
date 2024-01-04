@@ -35,9 +35,10 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 50,
   },
-  eventSelectInputContainer: {
-    alignItems: "center",
-    justifyContent: "center",
+  selectedDateText: {
+    alignSelf: "center",
+    fontSize: 20,
+    fontWeight: "bold",
   },
   eventInfoContainer: {
     marginTop: 50,

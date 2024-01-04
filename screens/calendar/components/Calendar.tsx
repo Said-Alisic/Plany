@@ -2,10 +2,8 @@ import { View } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import moment, { Moment } from "moment";
-import SelectDropdown from "react-native-select-dropdown";
-import EventInfo from "./EventInfo";
 import { Divider, Text } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import axios from "axios";
@@ -13,27 +11,23 @@ import { PlanyApiEndpoints } from "../../../common/enums";
 import { ICalendarEvent } from "../../../common/interfaces";
 import { styles } from "../../../styles/styles";
 import { calendarPickerStyles } from "../../../styles/calendar-picker-styles";
-import {
-  selectDropdownButtonStyle,
-  selectDropdownStyles,
-} from "../../../styles/select-dropdown-styles";
 
 export default function Calendar(): JSX.Element {
-  const selectDropdownRef = useRef<SelectDropdown>(null);
-  const [selectedEvent, setSelectedEvent] = useState<ICalendarEvent | null>(
-    null
-  );
+  // Set default date to be today
+  const [selectedDate, setSelectedDate] = useState<Moment>(moment());
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedEvents, setSelectedEvents] = useState<ICalendarEvent[]>([]);
 
+  // TODO: #9 -> Refactor method logic for better flow
   const handleDateChange: DateChangedCallback = async (date: Moment) => {
+    if (date) {
+      setSelectedDate(moment(date));
+    }
+
     const startDate: string = date
       ? moment(date).format("YYYY-MM-DD").toString()
-      : "";
-
-    selectDropdownRef.current?.reset();
-
-    // NOTE: Removes the selected event
-    setSelectedEvent(null);
+      : moment().format("YYYY-MM-DD").toString();
 
     await axios
       .get(PlanyApiEndpoints.CALENDAR_EVENTS, {
@@ -51,7 +45,7 @@ export default function Calendar(): JSX.Element {
         setSelectedEvents([]);
 
         console.error(
-          `An error occurred at${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
+          `An error occurred at ${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
           error.message
         );
       });
@@ -74,30 +68,15 @@ export default function Calendar(): JSX.Element {
         previousComponent={<Icon name="chevron-back-sharp" size={25} />}
       />
       <Divider style={styles.dividerMargin} />
-      <View style={styles.eventSelectInputContainer}>
-        <Text style={styles.dateText}>
-          Events Found: {selectedEvents.length || "No events found"}
-        </Text>
-        <SelectDropdown
-          buttonStyle={selectDropdownButtonStyle(selectedEvents).buttonStyle}
-          dropdownStyle={selectDropdownStyles.dropdownStyle}
-          ref={selectDropdownRef}
-          disabled={selectedEvents.length < 1}
-          data={selectedEvents}
-          onSelect={(event) => {
-            setSelectedEvent(event);
-          }}
-          buttonTextAfterSelection={(event) => {
-            return event.title;
-          }}
-          rowTextForSelection={(event) => {
-            return event.title;
-          }}
-        />
-        {selectedEvent && selectedEvents.length > 0 ? (
-          <EventInfo event={selectedEvent} />
-        ) : null}
-      </View>
+      {/* TODO: #9 -> Create separate component */}
+      <Text style={[styles.mt25, styles.selectedDateText]}>
+        {selectedDate.date() === moment().date()
+          ? selectedDate.format("ddd D MMM") + " - Today"
+          : selectedDate.format("ddd D MMM")}
+      </Text>
+      <Divider style={styles.dividerMargin} />
+
+      {/* TODO: #9 -> list events or show EMPTY text */}
     </View>
   );
 }
