@@ -1,17 +1,18 @@
-import { ScrollView, View } from "react-native";
+import { View } from "react-native";
 import CalendarPicker, {
   DateChangedCallback,
 } from "react-native-calendar-picker";
 import { useState } from "react";
 import moment, { Moment } from "moment";
-import { Divider, List, Text, Icon } from "react-native-paper";
+import { Divider } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
 import axios from "axios";
 import { PlanyApiEndpoints } from "../../../common/enums";
 import { ICalendarEvent } from "../../../common/interfaces";
 import { styles } from "../../../styles/styles";
 import { calendarPickerStyles } from "../../../styles/calendar-picker-styles";
-import { calendarEventsListStyles } from "../../../styles/calendar-events-list-styles";
+import SelectedDateBox from "./SelectedDateBox";
+import CalendarEventsSection from "./CalendarEventsSection";
 
 export default function Calendar(): JSX.Element {
   // Set default date to be today
@@ -69,61 +70,8 @@ export default function Calendar(): JSX.Element {
         previousComponent={<IonIcon name="chevron-back-sharp" size={25} />}
       />
       <Divider style={styles.dividerMargin} />
-      {/* TODO: #9 -> Create separate component */}
-      <Text style={[styles.mt25, styles.selectedDateText]}>
-        {moment().isSame(selectedDate, "day")
-          ? selectedDate.format("ddd D MMM") + " - Today"
-          : selectedDate.format("ddd D MMM")}
-      </Text>
-      <Divider style={styles.dividerMargin} />
-
-      {/* TODO: #9 -> list events or show EMPTY text */}
-      {/* TODO: #9 -> Separate list components into atoms or molecules */}
-
-      <View style={calendarEventsListStyles.eventsContainer}>
-        <View style={styles.inlineItems}>
-          <IonIcon name="calendar-sharp" size={30} style={[styles.mt10]} />
-          <Text variant="titleLarge" style={[styles.ml10, styles.mt10]}>
-            Events
-          </Text>
-        </View>
-        {calendarEvents.length > 0 ? (
-          <ScrollView>
-            <List.Section style={styles.ml10}>
-              {calendarEvents.map((event, index) => {
-                return (
-                  <View key={index} style={styles.mb10}>
-                    <List.Item
-                      title={event.title}
-                      left={() => (
-                        <View style={styles.inlineItems}>
-                          <Icon source="clock-time-four-outline" size={20} />
-                          <Text style={styles.ml10}>
-                            {moment(event.dateAndTime)
-                              .format("HH:mm")
-                              .toString()}
-                          </Text>
-                        </View>
-                      )}
-                    />
-                  </View>
-                );
-              })}
-            </List.Section>
-          </ScrollView>
-        ) : (
-          <Text
-            variant="bodyLarge"
-            style={[
-              styles.mt25,
-              styles.ml10,
-              calendarEventsListStyles.emptyEventsText,
-            ]}
-          >
-            No events found
-          </Text>
-        )}
-      </View>
+      <SelectedDateBox selectedDate={selectedDate} />
+      <CalendarEventsSection calendarEvents={calendarEvents} />
     </View>
   );
 }
