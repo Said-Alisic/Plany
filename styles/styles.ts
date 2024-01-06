@@ -5,12 +5,12 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   dividerMargin: {
-    marginTop: 25,
+    marginTop: 20,
     backgroundColor: "#808080",
   },
   appHeaderContainer: {
-    marginTop: 60,
-    marginLeft: 10,
+    marginTop: 50,
+    marginLeft: 15,
     alignItems: "flex-start",
     justifyContent: "flex-start",
   },
@@ -33,11 +33,10 @@ export const styles = StyleSheet.create({
   },
   calendarContainer: {
     marginTop: 20,
-    marginBottom: 50,
   },
   selectedDateText: {
     alignSelf: "center",
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
   },
   eventInfoContainer: {

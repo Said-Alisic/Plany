@@ -71,7 +71,7 @@ export default function Calendar(): JSX.Element {
       <Divider style={styles.dividerMargin} />
       {/* TODO: #9 -> Create separate component */}
       <Text style={[styles.mt25, styles.selectedDateText]}>
-        {selectedDate.date() === moment().date()
+        {moment().isSame(selectedDate, "day")
           ? selectedDate.format("ddd D MMM") + " - Today"
           : selectedDate.format("ddd D MMM")}
       </Text>
