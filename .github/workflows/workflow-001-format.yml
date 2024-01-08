@@ -27,5 +27,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, prettier, typescript]
+
       - name: Run prettier format
         run: pnpm run prettier:check

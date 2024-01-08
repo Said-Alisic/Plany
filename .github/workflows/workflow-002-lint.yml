@@ -26,8 +26,13 @@ jobs:
         with:
           node-version: "20.8.1"
 
-      - name: Install dependencies
-        run: pnpm install
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+            	args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, eslint, typescript]
 
       - name: Run ESlint format
         run: pnpm run eslint
