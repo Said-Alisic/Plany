@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "prettier:check": "prettier . --check",
     "prettier:format": "prettier . --write \"**/*.{ts,tsx,json}\"",
-    "eslint": "npx eslint . --ext .js,.jsx,.ts,.tsx"
+    "eslint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
