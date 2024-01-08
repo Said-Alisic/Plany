@@ -1,5 +1,4 @@
 import { View } from "react-native";
-import React from "react";
 import { Divider, Text } from "react-native-paper";
 import moment, { Moment } from "moment";
 import { selectedDateBoxStyles } from "../../../styles/calendar-styles/selected-date-box-styles";

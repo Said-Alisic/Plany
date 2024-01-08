@@ -24,8 +24,13 @@ jobs:
         with:
           node-version: "20.8.1"
 
-      - name: Install dependencies
-        run: npm install
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, prettier, typescript]
 
       - name: Run prettier format
-        run: npm run prettier:check
+        run: pnpm run prettier:check
