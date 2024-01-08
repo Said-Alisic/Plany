@@ -27,7 +27,7 @@ jobs:
           node-version: "20.8.1"
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Run ESlint format
-        run: npm run eslint
+        run: pnpm run eslint
