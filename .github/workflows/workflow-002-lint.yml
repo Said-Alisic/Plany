@@ -31,7 +31,7 @@ jobs:
           version: 8
           run_install: |
             - recursive: true
-            	args: [--frozen-lockfile, --strict-peer-dependencies]
+              args: [--frozen-lockfile, --strict-peer-dependencies]
             - args: [--global, eslint, typescript]
 
       - name: Run ESlint format
