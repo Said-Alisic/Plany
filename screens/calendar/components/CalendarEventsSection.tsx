@@ -12,7 +12,7 @@ interface ICalendarEventsSectionProps {
 }
 
 export default function CalendarEventsSection(
-  props: ICalendarEventsSectionProps
+  props: ICalendarEventsSectionProps,
 ): JSX.Element {
   const { calendarEvents } = props;
   return (
