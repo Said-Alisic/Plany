@@ -1,5 +1,4 @@
 import { View } from "react-native";
-import React from "react";
 import { AppHeader } from "../../components";
 import Calendar from "./components/Calendar";
 import { styles } from "../../styles/styles";

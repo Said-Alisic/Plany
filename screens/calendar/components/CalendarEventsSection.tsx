@@ -1,5 +1,4 @@
 import { View } from "react-native";
-import React from "react";
 import { ICalendarEvent } from "../../../common/interfaces";
 import { Text } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
@@ -13,7 +12,7 @@ interface ICalendarEventsSectionProps {
 }
 
 export default function CalendarEventsSection(
-  props: ICalendarEventsSectionProps,
+  props: ICalendarEventsSectionProps
 ): JSX.Element {
   const { calendarEvents } = props;
   return (
