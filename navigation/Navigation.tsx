@@ -24,7 +24,7 @@ export default function Navigation(): JSX.Element {
   // Determines which screen to render based on the button selected in the navigation bar
   const renderScene = BottomNavigation.SceneMap({
     calendar: () => <CalendarScreen />,
-    settings: () => <AppHeader headerText="Plany" subText="Settings" />,
+    settings: () => <AppHeader headerText="Plany" subText="Settings" />, // TODO: #16 -> Create a new `<SettingsScreen/>` component
   });
 
   // Styling for the BottomNavigation component props

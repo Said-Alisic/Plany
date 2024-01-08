@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import { styles } from "../../styles/styles";
+import { appHeaderStyles } from "../../styles/app-header-styles";
 
 interface AppHeaderProps {
   headerText: string;
@@ -8,9 +8,9 @@ interface AppHeaderProps {
 
 export default function AppHeader(props: AppHeaderProps): JSX.Element {
   return (
-    <View style={styles.appHeaderContainer}>
-      <Text style={styles.appHeaderText}>{props.headerText}</Text>
-      <Text style={styles.appHeaderSubText}>{props.subText}</Text>
+    <View style={appHeaderStyles.appHeaderContainer}>
+      <Text style={appHeaderStyles.appHeaderText}>{props.headerText}</Text>
+      <Text style={appHeaderStyles.appHeaderSubText}>{props.subText}</Text>
     </View>
   );
 }

@@ -2,6 +2,7 @@ import { View } from "react-native";
 import React from "react";
 import { Divider, Text } from "react-native-paper";
 import moment, { Moment } from "moment";
+import { selectedDateBoxStyles } from "../../../styles/calendar-styles/selected-date-box-styles";
 import { styles } from "../../../styles/styles";
 
 interface ISelectedDateBoxProps {
@@ -15,7 +16,7 @@ export default function SelectedDateBox(
 
   return (
     <View>
-      <Text style={[styles.mt25, styles.selectedDateText]}>
+      <Text style={[styles.mt25, selectedDateBoxStyles.selectedDateText]}>
         {moment().isSame(selectedDate, "day")
           ? selectedDate.format("ddd D MMM") + " - Today"
           : selectedDate.format("ddd D MMM")}

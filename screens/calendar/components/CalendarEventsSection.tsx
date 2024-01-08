@@ -3,10 +3,10 @@ import React from "react";
 import { ICalendarEvent } from "../../../common/interfaces";
 import { Text } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
-import { calendarEventsListStyles } from "../../../styles/calendar-events-list-styles";
+import { calendarEventsListStyles } from "../../../styles/calendar-styles/calendar-events-list-styles";
 import { styles } from "../../../styles/styles";
 import CalendarEventsList from "./CalendarEventsList";
-import { calendarEventsSectionStyles } from "../../../styles/calendar-events-section-styles";
+import { calendarEventsSectionStyles } from "../../../styles/calendar-styles/calendar-events-section-styles";
 
 interface ICalendarEventsSectionProps {
   calendarEvents: ICalendarEvent[];

@@ -10,7 +10,7 @@ import axios from "axios";
 import { PlanyApiEndpoints } from "../../../common/enums";
 import { ICalendarEvent } from "../../../common/interfaces";
 import { styles } from "../../../styles/styles";
-import { calendarPickerStyles } from "../../../styles/calendar-picker-styles";
+import { calendarPickerStyles } from "../../../styles/calendar-styles/calendar-picker-styles";
 import SelectedDateBox from "./SelectedDateBox";
 import CalendarEventsSection from "./CalendarEventsSection";
 
@@ -54,7 +54,7 @@ export default function Calendar(): JSX.Element {
   };
 
   return (
-    <View style={styles.calendarContainer}>
+    <View style={calendarPickerStyles.calendarContainer}>
       <CalendarPicker
         onDateChange={handleDateChange}
         todayBackgroundColor={calendarPickerStyles.todayBackgroundColor.color}

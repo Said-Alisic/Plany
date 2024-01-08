@@ -21,4 +21,7 @@ export const calendarPickerStyles = StyleSheet.create({
   yearTitleStyle: { fontWeight: "bold", fontSize: 18 },
   headerWrapperStyle: { width: "90%" },
   dayLabelsWrapper: { width: "100%" },
+  calendarContainer: {
+    marginTop: 20,
+  },
 });
