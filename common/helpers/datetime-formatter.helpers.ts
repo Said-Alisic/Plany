@@ -1,3 +1,5 @@
+// TODO: Currently unused due to redesigning of app in issue #9
+// TODO: Find a use for the helper methods?
 export const formatDateTimeStringToDate = (datetime: string): string => {
   const dateObj = new Date(datetime);
 
