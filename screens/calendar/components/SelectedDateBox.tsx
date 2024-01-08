@@ -10,7 +10,7 @@ interface ISelectedDateBoxProps {
 }
 
 export default function SelectedDateBox(
-  props: ISelectedDateBoxProps
+  props: ISelectedDateBoxProps,
 ): JSX.Element {
   const { selectedDate } = props;
 
