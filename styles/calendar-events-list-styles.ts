@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const calendarEventsListStyles = StyleSheet.create({
-  eventsContainer: {
-    marginLeft: 15,
-    marginTop: 5,
+  eventsListContainer: {
+    height: "47%",
+    marginTop: 15,
   },
   emptyEventsText: {
     color: "#737373",

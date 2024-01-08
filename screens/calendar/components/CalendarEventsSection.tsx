@@ -6,6 +6,7 @@ import IonIcon from "react-native-vector-icons/Ionicons";
 import { calendarEventsListStyles } from "../../../styles/calendar-events-list-styles";
 import { styles } from "../../../styles/styles";
 import CalendarEventsList from "./CalendarEventsList";
+import { calendarEventsSectionStyles } from "../../../styles/calendar-events-section-styles";
 
 interface ICalendarEventsSectionProps {
   calendarEvents: ICalendarEvent[];
@@ -17,7 +18,7 @@ export default function CalendarEventsSection(
   const { calendarEvents } = props;
   return (
     <View>
-      <View style={calendarEventsListStyles.eventsContainer}>
+      <View style={calendarEventsSectionStyles.eventsSectionContainer}>
         <View style={styles.inlineItems}>
           <IonIcon name="calendar-sharp" size={30} style={[styles.mt10]} />
           <Text variant="titleLarge" style={[styles.ml10, styles.mt10]}>
