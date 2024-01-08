@@ -1,3 +1,3 @@
-import AppHeader from "./header/AppHeader";
+import AppHeader from "./app-header/AppHeader";
 
 export { AppHeader };
