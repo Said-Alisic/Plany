@@ -10,7 +10,7 @@ interface ICalendarEventsListProps {
 }
 
 export default function CalendarEventsList(
-  props: ICalendarEventsListProps,
+  props: ICalendarEventsListProps
 ): JSX.Element {
   const { calendarEvents } = props;
 
