@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { BottomNavigation } from "react-native-paper";
-import { AppHeader } from "../components";
-import { CalendarScreen } from "../screens";
+import { CalendarScreen, SettingsScreen } from "../screens";
 import { bottomNavigationStyles } from "../styles/bottom-navigation-styles";
 
 export default function Navigation(): JSX.Element {
@@ -24,7 +23,7 @@ export default function Navigation(): JSX.Element {
   // Determines which screen to render based on the button selected in the navigation bar
   const renderScene = BottomNavigation.SceneMap({
     calendar: () => <CalendarScreen />,
-    settings: () => <AppHeader headerText="Plany" subText="Settings" />, // TODO: #16 -> Create a new `<SettingsScreen/>` component
+    settings: () => <SettingsScreen />, // TODO: #16 -> Create a new `<SettingsScreen/>` component
   });
 
   // Styling for the BottomNavigation component props
