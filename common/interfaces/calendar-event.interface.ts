@@ -1,11 +1,12 @@
 import { CalendarEventStatus } from "../enums";
-import { IParticipant } from "./";
+import { IUser } from "./";
+import { IBase } from "./";
 
-export interface ICalendarEvent {
-  id: string;
+export interface ICalendarEvent extends IBase {
   dateAndTime: string;
   title: string;
   location: string;
   status: CalendarEventStatus;
-  participants?: IParticipant[];
+  participants?: IUser[];
+  description?: string;
 }
