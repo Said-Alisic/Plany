@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import { appHeaderStyles } from "../../styles/app-header-styles";
 
 interface AppHeaderProps {
