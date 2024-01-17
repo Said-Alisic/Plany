@@ -1,28 +1,16 @@
 import { View } from "react-native";
 import { TouchableRipple, Text } from "react-native-paper";
-import { Theme } from "../../../../../common/enums";
 import { styles } from "../../../../../styles/styles";
-import { formatStringToTitleCase } from "../../../../../common/helpers";
 import IonIcon from "react-native-vector-icons/Ionicons";
 
 // TODO: Move component into a different folder?
-export default function ThemeSelectScreen(): JSX.Element {
-  const themes = Object.keys(Theme);
+export default function LanguageSelectScreen(): JSX.Element {
+  // TODO: Add helper method or an enum with all available languages
 
-  const themeIcon = (theme: string): string => {
-    switch (theme) {
-      case Theme.DARK:
-        return "moon";
-      case Theme.LIGHT:
-        return "sunny";
-      // Default will be treated as `Theme.SYSTEM`
-      default:
-        return "cog";
-    }
-  };
+  const languages = ["System", "English", "Danish", "한국어"];
 
-  const handlePress = (theme: string) => {
-    console.log("Set theme to: ", theme);
+  const handlePress = (language: string) => {
+    console.log("Set language to: ", language);
   };
 
   // TODO: #16 -> Move inline styles to a separate styles file
@@ -38,7 +26,7 @@ export default function ThemeSelectScreen(): JSX.Element {
         },
       ]}
     >
-      {themes.map((theme, index) => {
+      {languages.map((language, index) => {
         return (
           <TouchableRipple
             key={index}
@@ -50,12 +38,12 @@ export default function ThemeSelectScreen(): JSX.Element {
               borderRadius: 20,
               marginBottom: 10,
             }}
-            onPress={() => handlePress(theme)}
+            onPress={() => handlePress(language)}
             rippleColor="rgba(255, 255, 255, .11)"
           >
             <View style={styles.inlineItems}>
               <IonIcon
-                name={themeIcon(theme)}
+                name={language === "System" ? "cog" : "language"}
                 size={20}
                 style={{
                   color: "#ffffff",
@@ -63,10 +51,10 @@ export default function ThemeSelectScreen(): JSX.Element {
                 }}
               />
               <Text style={{ color: "#ffffff", marginLeft: 10 }}>
-                {formatStringToTitleCase(theme)}
+                {language}
               </Text>
-              {/* TODO: #FEATURE -> Add logic for setting icon on the currently used Theme enum value */}
-              {theme === Theme.LIGHT ? (
+              {/* TODO: #FEATURE -> Add logic for setting icon on the currently used Language value */}
+              {language === "English" ? (
                 <IonIcon
                   name="checkmark-outline"
                   size={25}
@@ -86,14 +74,14 @@ export default function ThemeSelectScreen(): JSX.Element {
       <Text
         variant="bodySmall"
         style={{
-          marginLeft: 2,
+          right: 5,
           width: "95%",
           alignSelf: "center",
           color: "#4d4d4d",
         }}
       >
-        If system is selected, then Plany will automatically adjust the theme
-        appearance based on your device{"'"}s system settings.
+        If system is selected, then Plany will automatically adjust the display
+        language based on your device{"'"}s system settings.
       </Text>
     </View>
   );

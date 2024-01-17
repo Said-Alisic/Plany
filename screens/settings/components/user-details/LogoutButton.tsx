@@ -1,4 +1,3 @@
-import React from "react";
 import { IconButton } from "react-native-paper";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 

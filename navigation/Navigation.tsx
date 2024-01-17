@@ -3,7 +3,6 @@ import {
   NativeStackNavigationProp,
   createNativeStackNavigator,
 } from "@react-navigation/native-stack";
-import React from "react";
 import { createMaterialBottomTabNavigator } from "react-native-paper/react-navigation";
 import IonIcon from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -11,6 +10,7 @@ import { RootStackParamList } from "../common/types";
 import { CalendarScreen, SettingsScreen } from "../screens";
 import ThemeSelectScreen from "../screens/settings/components/application-settings/components/ThemeSelectScreen";
 import { bottomNavigationStyles } from "../styles/bottom-navigation-styles";
+import LanguageSelectScreen from "../screens/settings/components/application-settings/components/LanguageSelectScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -74,9 +74,9 @@ const SettingsOptionsStacks = (): JSX.Element => {
   return (
     <Stack.Navigator
       screenOptions={{
+        contentStyle: { backgroundColor: "#fffbfe" }, // NOTE: React Native Paper background colour theme
         headerTransparent: true,
         headerTintColor: "#000000",
-        headerTitle: "Theme",
         headerLeft: () => (
           <IonIcon
             name="chevron-back"
@@ -87,7 +87,20 @@ const SettingsOptionsStacks = (): JSX.Element => {
         ),
       }}
     >
-      <Stack.Screen name="ThemeSelect" component={ThemeSelectScreen} />
+      <Stack.Screen
+        name="ThemeSelect"
+        component={ThemeSelectScreen}
+        options={{
+          headerTitle: "Theme",
+        }}
+      />
+      <Stack.Screen
+        name="LanguageSelect"
+        component={LanguageSelectScreen}
+        options={{
+          headerTitle: "Language",
+        }}
+      />
     </Stack.Navigator>
   );
 };
