@@ -7,5 +7,8 @@ export interface IUser extends IBase {
   email: string;
   password: string;
   theme: Theme;
+  language: string;
+  timezone: string;
   notificationsEnabled: boolean;
+  profilePictureUrl?: string;
 }
