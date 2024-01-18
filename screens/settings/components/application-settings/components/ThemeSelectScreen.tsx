@@ -1,21 +1,21 @@
 import { View } from "react-native";
 import { TouchableRipple, Text } from "react-native-paper";
-import { Theme } from "../../../../../common/enums";
+import { Themes } from "../../../../../common/enums";
 import { styles } from "../../../../../styles/styles";
 import { formatStringToTitleCase } from "../../../../../common/helpers";
 import IonIcon from "react-native-vector-icons/Ionicons";
 
 // TODO: Move component into a different folder?
 export default function ThemeSelectScreen(): JSX.Element {
-  const themes = Object.keys(Theme);
+  const themes = Object.keys(Themes);
 
   const themeIcon = (theme: string): string => {
     switch (theme) {
-      case Theme.DARK:
+      case Themes.DARK:
         return "moon";
-      case Theme.LIGHT:
+      case Themes.LIGHT:
         return "sunny";
-      // Default will be treated as `Theme.SYSTEM`
+      // Default will be treated as `Themes.SYSTEM`
       default:
         return "cog";
     }
@@ -66,7 +66,7 @@ export default function ThemeSelectScreen(): JSX.Element {
                 {formatStringToTitleCase(theme)}
               </Text>
               {/* TODO: #FEATURE -> Add logic for setting icon on the currently used Theme enum value */}
-              {theme === Theme.LIGHT ? (
+              {theme === Themes.LIGHT ? (
                 <IonIcon
                   name="checkmark-outline"
                   size={25}

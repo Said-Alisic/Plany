@@ -3,7 +3,7 @@ import { Text, TouchableRipple } from "react-native-paper";
 import { styles } from "../../../../styles/styles";
 import IonIcon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
-import { Theme } from "../../../../common/enums";
+import { Themes } from "../../../../common/enums";
 import { useState } from "react";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../common/types";
@@ -14,7 +14,7 @@ export default function ThemeSetting(): JSX.Element {
 
   // TODO: Add logic for setting theme at a later date
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
+  const [theme, setTheme] = useState<Themes>(Themes.LIGHT);
 
   const handlePress = () => {
     // Navigate to another screen
@@ -44,7 +44,7 @@ export default function ThemeSetting(): JSX.Element {
         >
           <View style={styles.inlineItems}>
             <IonIcon
-              name={theme === Theme.DARK ? "moon" : "sunny"}
+              name={theme === Themes.DARK ? "moon" : "sunny"}
               size={20}
               style={{
                 color: "#ffffff",
@@ -52,7 +52,7 @@ export default function ThemeSetting(): JSX.Element {
               }}
             />
             <Text style={{ color: "#ffffff", marginLeft: 10 }}>
-              {theme === Theme.DARK ? "Dark Mode" : "Light Mode"}
+              {theme === Themes.DARK ? "Dark Mode" : "Light Mode"}
             </Text>
             <IonIcon
               name="chevron-forward-outline"

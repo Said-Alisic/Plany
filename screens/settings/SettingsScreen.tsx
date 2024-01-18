@@ -3,7 +3,7 @@ import { AppHeader } from "../../components";
 import { styles } from "../../styles/styles";
 import { IUser } from "../../common/interfaces";
 import UserDetailsSection from "./components/UserDetailsSection";
-import { Theme } from "../../common/enums";
+import { Languages, Themes } from "../../common/enums";
 import ApplicationSettingsSection from "./components/ApplicationSettingsSection";
 import { Divider } from "react-native-paper";
 
@@ -18,10 +18,10 @@ export default function CalendarScreen(): JSX.Element {
     lastname: "LordFallen",
     email: "johndoe@example.com",
     password: "LOTF",
-    theme: Theme.SYSTEM,
+    theme: Themes.SYSTEM,
     notificationsEnabled: false,
-    language: "en",
-    timezone: "CET",
+    language: Languages.ENGLISH,
+    timezone: "GMT",
   };
 
   return (

@@ -21,7 +21,7 @@ export default function LanguageSetting(): JSX.Element {
   };
 
   return (
-    <View>
+    <View style={{ marginBottom: 15 }}>
       <Text
         style={[styles.mb10, styles.ml10, { color: "#4d4d4d" }]}
         variant="bodyLarge"

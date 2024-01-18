@@ -2,12 +2,19 @@ import { View } from "react-native";
 import { TouchableRipple, Text } from "react-native-paper";
 import { styles } from "../../../../../styles/styles";
 import IonIcon from "react-native-vector-icons/Ionicons";
+import { Languages } from "../../../../../common/enums";
+import { formatStringToTitleCase } from "../../../../../common/helpers";
 
 // TODO: Move component into a different folder?
 export default function LanguageSelectScreen(): JSX.Element {
   // TODO: Add helper method or an enum with all available languages
 
-  const languages = ["System", "English", "Danish", "한국어"];
+  const languages: { key: string; value: string }[] = Object.entries(
+    Languages
+  ).map(([key, value]) => ({
+    key,
+    value: formatStringToTitleCase(value),
+  }));
 
   const handlePress = (language: string) => {
     console.log("Set language to: ", language);
@@ -38,12 +45,12 @@ export default function LanguageSelectScreen(): JSX.Element {
               borderRadius: 20,
               marginBottom: 10,
             }}
-            onPress={() => handlePress(language)}
+            onPress={() => handlePress(language.key)}
             rippleColor="rgba(255, 255, 255, .11)"
           >
             <View style={styles.inlineItems}>
               <IonIcon
-                name={language === "System" ? "cog" : "language"}
+                name={language.value === "System" ? "cog" : "language"}
                 size={20}
                 style={{
                   color: "#ffffff",
@@ -51,10 +58,10 @@ export default function LanguageSelectScreen(): JSX.Element {
                 }}
               />
               <Text style={{ color: "#ffffff", marginLeft: 10 }}>
-                {language}
+                {language.value}
               </Text>
               {/* TODO: #FEATURE -> Add logic for setting icon on the currently used Language value */}
-              {language === "English" ? (
+              {language.value === "English" ? (
                 <IonIcon
                   name="checkmark-outline"
                   size={25}
