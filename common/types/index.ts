@@ -1,3 +1,3 @@
-import RootStackParamList from './RootStackParamList.type';
+import RootStackParamList from "./RootStackParamList.type";
 
 export { RootStackParamList };

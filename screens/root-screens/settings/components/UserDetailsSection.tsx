@@ -11,7 +11,7 @@ interface IUserDetailsSectionProps {
 }
 
 export default function UserDetailsSection(
-  props: IUserDetailsSectionProps
+  props: IUserDetailsSectionProps,
 ): JSX.Element {
   const { user } = props;
 

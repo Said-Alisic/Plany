@@ -21,7 +21,7 @@ const renderUserAvatarOrIcon = (profilePictureUrl?: string): JSX.Element => {
 };
 
 export default function UserDetailsAvatar(
-  props: IUserDetailsAvatarProps
+  props: IUserDetailsAvatarProps,
 ): JSX.Element {
   const { profilePictureUrl } = props;
 
