@@ -7,10 +7,10 @@ import moment, { Moment } from "moment";
 import { Divider } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
 import axios from "axios";
-import { PlanyApiEndpoints } from "../../../common/enums";
-import { ICalendarEvent } from "../../../common/interfaces";
-import { styles } from "../../../styles/styles";
-import { calendarPickerStyles } from "../../../styles/calendar-styles/calendar-picker-styles";
+import { PlanyApiEndpoints } from "../../../../common/enums";
+import { ICalendarEvent } from "../../../../common/interfaces";
+import { styles } from "../../../../styles/styles";
+import { calendarPickerStyles } from "../../../../styles/calendar-styles/calendar-picker-styles";
 import SelectedDateBox from "./SelectedDateBox";
 import CalendarEventsSection from "./CalendarEventsSection";
 

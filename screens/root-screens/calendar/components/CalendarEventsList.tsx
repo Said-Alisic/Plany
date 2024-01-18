@@ -1,8 +1,8 @@
 import { View, ScrollView } from "react-native";
 import { Icon, List, Text } from "react-native-paper";
-import { styles } from "../../../styles/styles";
-import { ICalendarEvent } from "../../../common/interfaces";
-import { calendarEventsListStyles } from "../../../styles/calendar-styles/calendar-events-list-styles";
+import { styles } from "../../../../styles/styles";
+import { ICalendarEvent } from "../../../../common/interfaces";
+import { calendarEventsListStyles } from "../../../../styles/calendar-styles/calendar-events-list-styles";
 import moment from "moment";
 
 interface ICalendarEventsListProps {

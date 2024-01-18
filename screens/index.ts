@@ -1,3 +1,1 @@
-import CalendarScreen from "./calendar/CalendarScreen";
-
-export { CalendarScreen };
+export * from "./root-screens";
