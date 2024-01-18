@@ -1,12 +1,13 @@
 import { View } from "react-native";
 import { Text, TouchableRipple } from "react-native-paper";
-import { styles } from "../../../../styles/styles";
+import { styles } from "../../../../../styles/styles";
 import IonIcon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
-import { Themes } from "../../../../common/enums";
+import { Themes } from "../../../../../common/enums";
 import { useState } from "react";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../common/types";
+import { RootStackParamList } from "../../../../../common/types";
+import { applicationSettingsStyles } from "../../../../../styles/settings-styles/application-settings-styles";
 
 export default function ThemeSetting(): JSX.Element {
   const navigation =
@@ -17,28 +18,20 @@ export default function ThemeSetting(): JSX.Element {
   const [theme, setTheme] = useState<Themes>(Themes.LIGHT);
 
   const handlePress = () => {
-    // Navigate to another screen
     navigation.navigate("SettingsOptions", { screen: "ThemeSelect" });
   };
 
-  // TODO: #16 -> Move inline styles to a separate styles file
   return (
-    <View style={{ marginBottom: 15 }}>
+    <View style={applicationSettingsStyles.SubContainer}>
       <Text
-        style={[styles.mb10, styles.ml10, { color: "#4d4d4d" }]}
+        style={[styles.mb10, styles.ml10, applicationSettingsStyles.HeaderText]}
         variant="bodyLarge"
       >
         Theme
       </Text>
       <View>
         <TouchableRipple
-          style={{
-            backgroundColor: "#262626",
-            width: "95%",
-            paddingTop: 10,
-            paddingBottom: 10,
-            borderRadius: 20,
-          }}
+          style={applicationSettingsStyles.Button}
           onPress={handlePress}
           rippleColor="rgba(255, 255, 255, .11)"
         >
@@ -46,23 +39,15 @@ export default function ThemeSetting(): JSX.Element {
             <IonIcon
               name={theme === Themes.DARK ? "moon" : "sunny"}
               size={20}
-              style={{
-                color: "#ffffff",
-                marginLeft: 15,
-              }}
+              style={applicationSettingsStyles.ButtonIcon}
             />
-            <Text style={{ color: "#ffffff", marginLeft: 10 }}>
+            <Text style={applicationSettingsStyles.ButtonText}>
               {theme === Themes.DARK ? "Dark Mode" : "Light Mode"}
             </Text>
             <IonIcon
               name="chevron-forward-outline"
               size={20}
-              style={{
-                right: 10,
-                color: "#ffffff",
-                alignSelf: "flex-end",
-                position: "absolute",
-              }}
+              style={applicationSettingsStyles.ButtonIconNext}
             />
           </View>
         </TouchableRipple>

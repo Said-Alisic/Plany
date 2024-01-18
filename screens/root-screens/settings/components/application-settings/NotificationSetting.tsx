@@ -2,7 +2,8 @@ import { useState } from "react";
 import { View } from "react-native";
 import { Switch, Text } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
-import { styles } from "../../../../styles/styles";
+import { styles } from "../../../../../styles/styles";
+import { applicationSettingsStyles } from "../../../../../styles/settings-styles/application-settings-styles";
 
 export default function NotificationSetting(): JSX.Element {
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(false);
@@ -13,24 +14,15 @@ export default function NotificationSetting(): JSX.Element {
     setIsNotificationsEnabled(!isNotificationsEnabled);
   };
 
-  // TODO: #16 -> Move inline styles to a separate styles file
   return (
-    <View style={{ marginBottom: 15 }}>
+    <View style={applicationSettingsStyles.SubContainer}>
       <Text
-        style={[styles.mb10, styles.ml10, { color: "#4d4d4d" }]}
+        style={[styles.mb10, styles.ml10, applicationSettingsStyles.HeaderText]}
         variant="bodyLarge"
       >
         Nofitications
       </Text>
-      <View
-        style={{
-          backgroundColor: "#262626",
-          width: "95%",
-          paddingTop: 10,
-          paddingBottom: 10,
-          borderRadius: 20,
-        }}
-      >
+      <View style={applicationSettingsStyles.Button}>
         <View style={styles.inlineItems}>
           <IonIcon
             name={
@@ -39,12 +31,9 @@ export default function NotificationSetting(): JSX.Element {
                 : "notifications-off-outline"
             }
             size={20}
-            style={{
-              color: "#ffffff",
-              marginLeft: 15,
-            }}
+            style={applicationSettingsStyles.ButtonIcon}
           />
-          <Text style={{ color: "#ffffff", marginLeft: 10 }}>
+          <Text style={applicationSettingsStyles.ButtonText}>
             Enable Notification
           </Text>
           <Switch
@@ -52,24 +41,13 @@ export default function NotificationSetting(): JSX.Element {
             onValueChange={onToggleNotifications}
             trackColor={{ false: "#ffffff", true: "#00b300" }}
             ios_backgroundColor={"#a6a6a6"}
-            style={{
-              top: -4.5,
-              right: 10,
-              alignSelf: "flex-end",
-              position: "absolute",
-              transform: [{ scaleX: 0.9 }, { scaleY: 0.9 }],
-            }}
+            style={applicationSettingsStyles.Switch}
           />
         </View>
       </View>
       <Text
         variant="bodySmall"
-        style={{
-          marginTop: 5,
-          width: "92.5%",
-          alignSelf: "center",
-          color: "#4d4d4d",
-        }}
+        style={applicationSettingsStyles.NotificationOptionInfoText}
       >
         Enable push notifications, including notification messages, sounds, and
         vibration.

@@ -1,9 +1,9 @@
 import { View } from "react-native";
-import { IUser } from "../../../common/interfaces";
-import { styles } from "../../../styles/styles";
+import { IUser } from "../../../../common/interfaces";
+import { styles } from "../../../../styles/styles";
 import UserDetailsAvatar from "./user-details/UserDetailsAvatar";
 import UserDetails from "./user-details/UserDetails";
-import { userDetailsSectionStyles } from "../../../styles/settings-styles/user-details-section-styles";
+import { userDetailsStyles } from "../../../../styles/settings-styles/user-details-styles";
 import LogoutButton from "./user-details/LogoutButton";
 
 interface IUserDetailsSectionProps {
@@ -16,9 +16,7 @@ export default function UserDetailsSection(
   const { user } = props;
 
   return (
-    <View
-      style={[userDetailsSectionStyles.settingsContainer, styles.inlineItems]}
-    >
+    <View style={[userDetailsStyles.settingsContainer, styles.inlineItems]}>
       <UserDetailsAvatar profilePictureUrl={user.profilePictureUrl} />
       <UserDetails user={user} />
       <LogoutButton />

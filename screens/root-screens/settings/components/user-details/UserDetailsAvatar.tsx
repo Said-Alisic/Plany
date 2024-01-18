@@ -1,6 +1,7 @@
 import { View } from "react-native";
 import { Avatar } from "react-native-paper";
-import { styles } from "../../../../styles/styles";
+import { styles } from "../../../../../styles/styles";
+import { userDetailsStyles } from "../../../../../styles/settings-styles/user-details-styles";
 
 interface IUserDetailsAvatarProps {
   profilePictureUrl?: string;
@@ -12,7 +13,7 @@ const renderUserAvatarOrIcon = (profilePictureUrl?: string): JSX.Element => {
       size={60}
       icon="account-circle"
       color="#ffffff"
-      style={{ backgroundColor: "#262626" }} // TODO: #16 -> Add styles file for this
+      style={userDetailsStyles.userAvatar}
     />
   ) : (
     <Avatar.Image size={60} source={{ uri: profilePictureUrl }} />

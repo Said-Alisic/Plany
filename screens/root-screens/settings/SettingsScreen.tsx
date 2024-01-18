@@ -1,9 +1,9 @@
 import { View } from "react-native";
-import { AppHeader } from "../../components";
-import { styles } from "../../styles/styles";
-import { IUser } from "../../common/interfaces";
+import { AppHeader } from "../../../components";
+import { styles } from "../../../styles/styles";
+import { IUser } from "../../../common/interfaces";
 import UserDetailsSection from "./components/UserDetailsSection";
-import { Languages, Themes } from "../../common/enums";
+import { Languages, Themes } from "../../../common/enums";
 import ApplicationSettingsSection from "./components/ApplicationSettingsSection";
 import { Divider } from "react-native-paper";
 

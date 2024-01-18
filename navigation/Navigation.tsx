@@ -7,10 +7,12 @@ import { createMaterialBottomTabNavigator } from "react-native-paper/react-navig
 import IonIcon from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { RootStackParamList } from "../common/types";
-import { CalendarScreen, SettingsScreen } from "../screens";
-import ThemeSelectScreen from "../screens/settings/components/application-settings/components/ThemeSelectScreen";
 import { bottomNavigationStyles } from "../styles/bottom-navigation-styles";
-import LanguageSelectScreen from "../screens/settings/components/application-settings/components/LanguageSelectScreen";
+import {
+  LanguageSelectScreen,
+  ThemeSelectScreen,
+} from "../screens/settings-options-screens";
+import { CalendarScreen, SettingsScreen } from "../screens";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();

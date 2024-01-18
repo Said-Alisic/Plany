@@ -2,10 +2,11 @@ import { View } from "react-native";
 import { useState } from "react";
 import { Text, TouchableRipple } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
-import { styles } from "../../../../styles/styles";
+import { styles } from "../../../../../styles/styles";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../../common/types";
+import { RootStackParamList } from "../../../../../common/types";
+import { applicationSettingsStyles } from "../../../../../styles/settings-styles/application-settings-styles";
 
 export default function LanguageSetting(): JSX.Element {
   const navigation =
@@ -16,27 +17,20 @@ export default function LanguageSetting(): JSX.Element {
   const [language, setLanguage] = useState<string>("English");
 
   const handlePress = () => {
-    // Navigate to another screen
     navigation.navigate("SettingsOptions", { screen: "LanguageSelect" });
   };
 
   return (
-    <View style={{ marginBottom: 15 }}>
+    <View style={applicationSettingsStyles.SubContainer}>
       <Text
-        style={[styles.mb10, styles.ml10, { color: "#4d4d4d" }]}
+        style={[styles.mb10, styles.ml10, applicationSettingsStyles.HeaderText]}
         variant="bodyLarge"
       >
         Language
       </Text>
       <View>
         <TouchableRipple
-          style={{
-            backgroundColor: "#262626",
-            width: "95%",
-            paddingTop: 10,
-            paddingBottom: 10,
-            borderRadius: 20,
-          }}
+          style={applicationSettingsStyles.Button}
           onPress={handlePress}
           rippleColor="rgba(255, 255, 255, .11)"
         >
@@ -44,21 +38,13 @@ export default function LanguageSetting(): JSX.Element {
             <IonIcon
               name="language-outline"
               size={20}
-              style={{
-                color: "#ffffff",
-                marginLeft: 15,
-              }}
+              style={applicationSettingsStyles.ButtonIcon}
             />
-            <Text style={{ color: "#ffffff", marginLeft: 10 }}>{language}</Text>
+            <Text style={applicationSettingsStyles.ButtonText}>{language}</Text>
             <IonIcon
               name="chevron-forward-outline"
               size={20}
-              style={{
-                right: 10,
-                color: "#ffffff",
-                alignSelf: "flex-end",
-                position: "absolute",
-              }}
+              style={applicationSettingsStyles.ButtonIconNext}
             />
           </View>
         </TouchableRipple>

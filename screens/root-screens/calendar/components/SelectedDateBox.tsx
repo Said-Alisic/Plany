@@ -1,15 +1,15 @@
 import { View } from "react-native";
 import { Divider, Text } from "react-native-paper";
 import moment, { Moment } from "moment";
-import { selectedDateBoxStyles } from "../../../styles/calendar-styles/selected-date-box-styles";
-import { styles } from "../../../styles/styles";
+import { selectedDateBoxStyles } from "../../../../styles/calendar-styles/selected-date-box-styles";
+import { styles } from "../../../../styles/styles";
 
 interface ISelectedDateBoxProps {
   selectedDate: Moment;
 }
 
 export default function SelectedDateBox(
-  props: ISelectedDateBoxProps,
+  props: ISelectedDateBoxProps
 ): JSX.Element {
   const { selectedDate } = props;
 

@@ -7,10 +7,10 @@ import moment, { Moment } from "moment";
 import { Divider } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
 import axios from "axios";
-import { PlanyApiEndpoints } from "../../../common/enums";
-import { ICalendarEvent } from "../../../common/interfaces";
-import { styles } from "../../../styles/styles";
-import { calendarPickerStyles } from "../../../styles/calendar-styles/calendar-picker-styles";
+import { PlanyApiEndpoints } from "../../../../common/enums";
+import { ICalendarEvent } from "../../../../common/interfaces";
+import { styles } from "../../../../styles/styles";
+import { calendarPickerStyles } from "../../../../styles/calendar-styles/calendar-picker-styles";
 import SelectedDateBox from "./SelectedDateBox";
 import CalendarEventsSection from "./CalendarEventsSection";
 
@@ -38,7 +38,7 @@ export default function Calendar(): JSX.Element {
       .then((response) => {
         const selectedDateEvents: ICalendarEvent[] = response.data.filter(
           (item: ICalendarEvent) =>
-            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate,
+            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate
         );
 
         setCalendarEvents(selectedDateEvents);
@@ -48,7 +48,7 @@ export default function Calendar(): JSX.Element {
 
         console.error(
           `An error occurred at ${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
-          error.message,
+          error.message
         );
       });
   };

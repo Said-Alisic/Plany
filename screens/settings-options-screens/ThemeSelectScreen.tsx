@@ -1,9 +1,12 @@
+/* eslint-disable react-native/no-color-literals */
+/* eslint-disable react-native/no-inline-styles */
 import { View } from "react-native";
 import { TouchableRipple, Text } from "react-native-paper";
-import { Themes } from "../../../../../common/enums";
-import { styles } from "../../../../../styles/styles";
-import { formatStringToTitleCase } from "../../../../../common/helpers";
+import { Themes } from "../../common/enums";
+import { styles } from "../../styles/styles";
+import { formatStringToTitleCase } from "../../common/helpers";
 import IonIcon from "react-native-vector-icons/Ionicons";
+import { applicationSettingsStyles } from "../../styles/settings-styles/application-settings-styles";
 
 // TODO: Move component into a different folder?
 export default function ThemeSelectScreen(): JSX.Element {
@@ -27,21 +30,12 @@ export default function ThemeSelectScreen(): JSX.Element {
 
   // TODO: #16 -> Move inline styles to a separate styles file
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          marginTop: 120,
-          marginLeft: 15,
-          alignItems: "flex-start",
-          justifyContent: "flex-start",
-        },
-      ]}
-    >
+    <View style={[styles.container, applicationSettingsStyles.OptionContainer]}>
       {themes.map((theme, index) => {
         return (
           <TouchableRipple
             key={index}
+            // FIXME: Check out -> #STYLINGPROBLEM [OptionButton]
             style={{
               backgroundColor: "#262626",
               width: "95.8%",
@@ -57,12 +51,13 @@ export default function ThemeSelectScreen(): JSX.Element {
               <IonIcon
                 name={themeIcon(theme)}
                 size={20}
+                // FIXME: Check out -> #STYLINGPROBLEM [OptionButtonIcon]
                 style={{
                   color: "#ffffff",
                   marginLeft: 15,
                 }}
               />
-              <Text style={{ color: "#ffffff", marginLeft: 10 }}>
+              <Text style={applicationSettingsStyles.OptionButtonText}>
                 {formatStringToTitleCase(theme)}
               </Text>
               {/* TODO: #FEATURE -> Add logic for setting icon on the currently used Theme enum value */}
@@ -70,6 +65,8 @@ export default function ThemeSelectScreen(): JSX.Element {
                 <IonIcon
                   name="checkmark-outline"
                   size={25}
+                  // FIXME: Check out -> #STYLINGPROBLEM [OptionButtonCheckmark]
+
                   style={{
                     right: 12,
                     bottom: -3,
@@ -85,12 +82,7 @@ export default function ThemeSelectScreen(): JSX.Element {
       })}
       <Text
         variant="bodySmall"
-        style={{
-          marginLeft: 2,
-          width: "95%",
-          alignSelf: "center",
-          color: "#4d4d4d",
-        }}
+        style={applicationSettingsStyles.OptionInfoText}
       >
         If system is selected, then Plany will automatically adjust the theme
         appearance based on your device{"'"}s system settings.
