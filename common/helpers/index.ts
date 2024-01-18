@@ -1,2 +1,2 @@
-export * from "./datetime-formatter.helpers";
-export * from "./string-formatter.helpers";
+export * from "./datetime-formatter.helper";
+export * from "./string-formatter.helper";

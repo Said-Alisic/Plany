@@ -1,4 +1,4 @@
-import { Theme } from "../enums";
+import { Languages, Themes } from "../enums";
 import { IBase } from "./";
 
 export interface IUser extends IBase {
@@ -6,8 +6,8 @@ export interface IUser extends IBase {
   lastname: string;
   email: string;
   password: string;
-  theme: Theme;
-  language: string;
+  theme: Themes;
+  language: Languages;
   timezone: string;
   notificationsEnabled: boolean;
   profilePictureUrl?: string;
