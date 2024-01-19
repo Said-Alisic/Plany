@@ -8,10 +8,7 @@ import IonIcon from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { RootStackParamList } from "../common/types";
 import { bottomNavigationStyles } from "../styles/bottom-navigation-styles";
-import {
-  LanguageSelectScreen,
-  ThemeSelectScreen,
-} from "../screens/settings-options-screens";
+import { LanguageSelectScreen, ThemeSelectScreen } from "../screens";
 import { CalendarScreen, SettingsScreen } from "../screens";
 
 const Tab = createMaterialBottomTabNavigator();
