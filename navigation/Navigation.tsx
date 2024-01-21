@@ -8,7 +8,12 @@ import IonIcon from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { RootStackParamList } from "../common/types";
 import { bottomNavigationStyles } from "../styles/bottom-navigation-styles";
-import { LanguageSelectScreen, ThemeSelectScreen } from "../screens";
+import {
+  LanguageSelectScreen,
+  SignInScreen,
+  SignUpScreen,
+  ThemeSelectScreen,
+} from "../screens";
 import { CalendarScreen, SettingsScreen } from "../screens";
 
 const Tab = createMaterialBottomTabNavigator();
@@ -103,12 +108,28 @@ const SettingsOptionsStacks = (): JSX.Element => {
     </Stack.Navigator>
   );
 };
+// TODO: #26 -> Split into separate component
+const AuthenticationStacks = (): JSX.Element => {
+  return (
+    <Stack.Navigator
+      initialRouteName="SignUp"
+      screenOptions={{
+        contentStyle: { backgroundColor: "#fffbfe" }, // NOTE: React Native Paper background colour theme
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="SignIn" component={SignInScreen} />
+    </Stack.Navigator>
+  );
+};
 
 export default function Navigation(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Root"
+        initialRouteName="Authentication"
+        // initialRouteName="Root"
         screenOptions={{
           headerShown: false,
         }}
@@ -118,6 +139,7 @@ export default function Navigation(): JSX.Element {
           name="SettingsOptions"
           component={SettingsOptionsStacks}
         />
+        <Stack.Screen name="Authentication" component={AuthenticationStacks} />
       </Stack.Navigator>
     </NavigationContainer>
   );
