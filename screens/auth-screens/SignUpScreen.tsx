@@ -19,20 +19,20 @@ export default function SignUpScreen(): JSX.Element {
   const [password, setPassword] = useState("");
 
   const handleSignUp = () => {
-    // Add your sign-in logic here
-    if (email && password) {
-      // Successful sign-in logic
+    // Add your sign-up logic here
+    if (firstname && lastname && email && password) {
+      // Successful sign-up logic
       console.log(
-        `Logged in with email "${email}" and password "${password}".`
+        `Signed up with first name "${firstname}", lastname "${lastname}", email "${email}" and password "${password}".`
       );
     } else {
-      // Unsuccessful sign-in logic
-      console.log("Could not log in user.");
+      // Unsuccessful sign-up logic
+      console.log("Could not sign up user.");
     }
   };
 
   const handleSocialLogin = (provider: string) => {
-    console.log(`Social login with ${provider}`);
+    console.log(`Social sign up with ${provider}`);
     // Add your social login logic here
   };
 
@@ -108,7 +108,7 @@ export default function SignUpScreen(): JSX.Element {
         onPress={handleSignUp}
         style={signUpStyles.button}
       >
-        Sign In
+        Sign Up
       </Button>
 
       <View
