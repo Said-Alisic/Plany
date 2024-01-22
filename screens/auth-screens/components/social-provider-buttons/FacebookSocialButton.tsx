@@ -1,5 +1,6 @@
 import { Image } from "react-native";
 import { IconButton } from "react-native-paper";
+import { authComponentStyles } from "../../../../styles/auth-styles/auth-component-styles";
 
 export default function FacebookSocialButton(): JSX.Element {
   const FacebookLogoSecondary = ({ size }: { size: number }) => (
@@ -17,7 +18,7 @@ export default function FacebookSocialButton(): JSX.Element {
 
   return (
     <IconButton
-      style={{ marginLeft: 10, marginRight: 10 }}
+      style={authComponentStyles.socialProviderButton}
       containerColor="#000000"
       iconColor="#ffffff"
       size={35}

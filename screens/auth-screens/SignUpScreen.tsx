@@ -1,5 +1,4 @@
-/* eslint-disable react-native/no-raw-text */
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { styles } from "../../styles/styles";
 import FacebookSocialButton from "./components/social-provider-buttons/FacebookSocialButton";
 import XSocialButton from "./components/social-provider-buttons/XSocialButton";
@@ -9,10 +8,11 @@ import DividerText from "./components/DividerText";
 import RedirectText from "./components/RedirectText";
 import HeaderText from "./components/HeaderText";
 import SignUpForm from "./components/auth-forms/SignUpForm";
+import { authComponentStyles } from "../../styles/auth-styles/auth-component-styles";
 
 export default function SignUpScreen(): JSX.Element {
   return (
-    <View style={[styles.container, signUpStyles.signUpContainer]}>
+    <View style={[styles.container, authComponentStyles.container]}>
       {/* Account Login Form */}
       <HeaderText headerText="Sign Up" />
 
@@ -22,7 +22,7 @@ export default function SignUpScreen(): JSX.Element {
       <DividerText />
 
       {/* Social Login Buttons */}
-      <View style={signUpStyles.socialButtonsContainer}>
+      <View style={authComponentStyles.socialButtonsContainer}>
         <GmailSocialButton />
         <FacebookSocialButton />
         <XSocialButton />
@@ -38,15 +38,3 @@ export default function SignUpScreen(): JSX.Element {
     </View>
   );
 }
-
-const signUpStyles = StyleSheet.create({
-  signUpContainer: {
-    paddingTop: 150,
-    alignItems: "center",
-  },
-  socialButtonsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginBottom: 20,
-  },
-});

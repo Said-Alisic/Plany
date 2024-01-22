@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../common/types";
+import { authComponentStyles } from "../../../styles/auth-styles/auth-component-styles";
 
 interface IRedirectTextProps {
   questionText: string;
@@ -21,10 +21,10 @@ export default function RedirectText(props: IRedirectTextProps): JSX.Element {
   };
 
   return (
-    <Text style={signInStyles.redirectText}>
+    <Text style={authComponentStyles.redirectText}>
       {`${questionText} `}
       <Text
-        style={{ color: "#000000", fontWeight: "bold" }}
+        style={authComponentStyles.redirectTextLink}
         onPress={() => handleRedirect()}
       >
         {redirectText}
@@ -32,10 +32,3 @@ export default function RedirectText(props: IRedirectTextProps): JSX.Element {
     </Text>
   );
 }
-
-const signInStyles = StyleSheet.create({
-  redirectText: {
-    marginTop: 20,
-    color: "#4d4d4d",
-  },
-});

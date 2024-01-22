@@ -28,7 +28,6 @@ export default function ThemeSelectScreen(): JSX.Element {
     console.log("Set theme to: ", theme);
   };
 
-  // TODO: #16 -> Move inline styles to a separate styles file
   return (
     <View style={[styles.container, applicationSettingsStyles.optionContainer]}>
       {themes.map((theme, index) => {

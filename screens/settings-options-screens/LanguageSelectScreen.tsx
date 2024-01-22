@@ -23,7 +23,6 @@ export default function LanguageSelectScreen(): JSX.Element {
     console.log("Set language to: ", language);
   };
 
-  // TODO: #16 -> Move inline styles to a separate styles file
   return (
     <View style={[styles.container, applicationSettingsStyles.optionContainer]}>
       {languages.map((language, index) => {

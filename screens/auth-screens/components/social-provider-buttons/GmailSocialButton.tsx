@@ -1,5 +1,6 @@
 import { IconButton } from "react-native-paper";
 import IonIcon from "react-native-vector-icons/Ionicons";
+import { authComponentStyles } from "../../../../styles/auth-styles/auth-component-styles";
 
 export default function GmailSocialButton(): JSX.Element {
   // TODO: #FEATURE Add social login provider logic at a later date
@@ -10,7 +11,7 @@ export default function GmailSocialButton(): JSX.Element {
 
   return (
     <IconButton
-      style={{ marginLeft: 10, marginRight: 10 }}
+      style={authComponentStyles.socialProviderButton}
       containerColor="#000000"
       iconColor="#ffffff"
       size={35}

@@ -21,7 +21,6 @@ export default function Calendar(): JSX.Element {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [calendarEvents, setCalendarEvents] = useState<ICalendarEvent[]>([]);
 
-  // TODO: #9 -> Refactor method logic for better flow
   const handleDateChange: DateChangedCallback = async (date: Moment) => {
     if (date) {
       setSelectedDate(moment(date));
@@ -38,7 +37,7 @@ export default function Calendar(): JSX.Element {
       .then((response) => {
         const selectedDateEvents: ICalendarEvent[] = response.data.filter(
           (item: ICalendarEvent) =>
-            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate,
+            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate
         );
 
         setCalendarEvents(selectedDateEvents);
@@ -48,7 +47,7 @@ export default function Calendar(): JSX.Element {
 
         console.error(
           `An error occurred at ${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
-          error.message,
+          error.message
         );
       });
   };
