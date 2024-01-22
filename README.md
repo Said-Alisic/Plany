@@ -53,11 +53,15 @@ To get started with Plany, follow these steps:
 
 ### Sign In
 
+https://github.com/Said-Alisic/Plany/assets/45482255/3af979ee-df6f-4ff9-bc96-b8b7858f70e6
+
 [Sign In feature video](./docs/images/PlanySignInVideo.mov)
 
 Signing in using email and password. Additionally, possible to sign in using a social provider such as Gmail.
 
 ### Sign Up
+
+https://github.com/Said-Alisic/Plany/assets/45482255/355d54af-d50a-4d22-aa48-179930ca55c8
 
 [Sign Up feature video](./docs/images/PlanySignUpVideo.mov)
 
@@ -65,11 +69,16 @@ Signing up using email and password. Additionally, possible to sign up using a s
 
 ### Calendar
 
+https://github.com/Said-Alisic/Plany/assets/45482255/08d96cfe-23e0-4a13-af7f-1dd315420880
+
 [Calendar feature video](./docs/images/PlanyCalendarVideo.mov)
 
 Checking events through a calendar. Creating new and deleting existing events in addition to displaying detailed event information for selected events.
 
 ### Settings
+
+
+https://github.com/Said-Alisic/Plany/assets/45482255/71aaddd1-fd20-4c6e-86e8-a6e6fd3bc236
 
 [Settings feature video](./docs/images/PlanyCalendarVideo.mov)
 
