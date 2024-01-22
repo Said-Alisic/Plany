@@ -19,7 +19,7 @@ export default function SignInForm(): JSX.Element {
   const handleSignIn = () => {
     if (email && password) {
       console.log(
-        `Logged in with email "${email}" and password "${password}".`
+        `Logged in with email "${email}" and password "${password}".`,
       );
 
       navigation.navigate("Root", { screen: "Calendar" });

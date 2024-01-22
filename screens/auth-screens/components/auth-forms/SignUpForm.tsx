@@ -21,7 +21,7 @@ export default function SignUpForm(): JSX.Element {
   const handleSignUp = () => {
     if (firstname && lastname && email && password) {
       console.log(
-        `Signed up with first name "${firstname}", lastname "${lastname}", email "${email}" and password "${password}".`
+        `Signed up with first name "${firstname}", lastname "${lastname}", email "${email}" and password "${password}".`,
       );
 
       navigation.navigate("Root", { screen: "Calendar" });
