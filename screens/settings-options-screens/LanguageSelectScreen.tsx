@@ -13,7 +13,7 @@ export default function LanguageSelectScreen(): JSX.Element {
   // TODO: Add helper method or an enum with all available languages
 
   const languages: { key: string; value: string }[] = Object.entries(
-    Languages,
+    Languages
   ).map(([key, value]) => ({
     key,
     value: formatStringToTitleCase(value),
@@ -25,12 +25,12 @@ export default function LanguageSelectScreen(): JSX.Element {
 
   // TODO: #16 -> Move inline styles to a separate styles file
   return (
-    <View style={[styles.container, applicationSettingsStyles.OptionContainer]}>
+    <View style={[styles.container, applicationSettingsStyles.optionContainer]}>
       {languages.map((language, index) => {
         return (
           <TouchableRipple
             key={index}
-            // FIXME: Check out -> #STYLINGPROBLEM [OptionButton]
+            // FIXME: Check out -> #STYLINGPROBLEM [optionButton]
             style={{
               backgroundColor: "#262626",
               width: "95.8%",
@@ -46,13 +46,13 @@ export default function LanguageSelectScreen(): JSX.Element {
               <IonIcon
                 name={language.value === "System" ? "cog" : "language"}
                 size={20}
-                // FIXME: Check out -> #STYLINGPROBLEM [OptionButtonIcon]
+                // FIXME: Check out -> #STYLINGPROBLEM [optionButtonIcon]
                 style={{
                   color: "#ffffff",
                   marginLeft: 15,
                 }}
               />
-              <Text style={applicationSettingsStyles.OptionButtonText}>
+              <Text style={applicationSettingsStyles.optionButtonText}>
                 {language.value}
               </Text>
               {/* TODO: #FEATURE -> Add logic for setting icon on the currently used Language value */}
@@ -60,7 +60,7 @@ export default function LanguageSelectScreen(): JSX.Element {
                 <IonIcon
                   name="checkmark-outline"
                   size={25}
-                  // FIXME: Check out -> #STYLINGPROBLEM [OptionButtonCheckmark]
+                  // FIXME: Check out -> #STYLINGPROBLEM [optionButtonCheckmark]
                   style={{
                     right: 12,
                     bottom: -3,
@@ -76,7 +76,7 @@ export default function LanguageSelectScreen(): JSX.Element {
       })}
       <Text
         variant="bodySmall"
-        style={applicationSettingsStyles.OptionInfoText}
+        style={applicationSettingsStyles.optionInfoText}
       >
         If system is selected, then Plany will automatically adjust the display
         language based on your device{"'"}s system settings.

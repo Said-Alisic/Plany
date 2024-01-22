@@ -24,7 +24,7 @@ export default function SignInForm(): JSX.Element {
       navigation.navigate("Root", { screen: "Calendar" });
     } else {
       // Unsuccessful sign-in logic
-      console.log("Could not log in user.");
+      console.log("Could not sign in user.");
     }
   };
 

@@ -22,16 +22,16 @@ export default function ThemeSetting(): JSX.Element {
   };
 
   return (
-    <View style={applicationSettingsStyles.SubContainer}>
+    <View style={applicationSettingsStyles.subContainer}>
       <Text
-        style={[styles.mb10, styles.ml10, applicationSettingsStyles.HeaderText]}
+        style={[styles.mb10, styles.ml10, applicationSettingsStyles.headerText]}
         variant="bodyLarge"
       >
         Theme
       </Text>
       <View>
         <TouchableRipple
-          style={applicationSettingsStyles.Button}
+          style={applicationSettingsStyles.button}
           onPress={handlePress}
           rippleColor="rgba(255, 255, 255, .11)"
         >
@@ -39,15 +39,15 @@ export default function ThemeSetting(): JSX.Element {
             <IonIcon
               name={theme === Themes.DARK ? "moon" : "sunny"}
               size={20}
-              style={applicationSettingsStyles.ButtonIcon}
+              style={applicationSettingsStyles.buttonIcon}
             />
-            <Text style={applicationSettingsStyles.ButtonText}>
+            <Text style={applicationSettingsStyles.buttonText}>
               {theme === Themes.DARK ? "Dark Mode" : "Light Mode"}
             </Text>
             <IonIcon
               name="chevron-forward-outline"
               size={20}
-              style={applicationSettingsStyles.ButtonIconNext}
+              style={applicationSettingsStyles.buttonIconNext}
             />
           </View>
         </TouchableRipple>

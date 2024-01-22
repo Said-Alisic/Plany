@@ -5,41 +5,41 @@ export const applicationSettingsStyles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 20,
   },
-  SubContainer: { marginBottom: 15 },
-  HeaderText: { color: "#4d4d4d" },
-  Button: {
+  subContainer: { marginBottom: 15 },
+  headerText: { color: "#4d4d4d" },
+  button: {
     backgroundColor: "#262626",
     width: "95%",
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 20,
   },
-  ButtonIcon: {
+  buttonIcon: {
     color: "#ffffff",
     marginLeft: 15,
   },
-  ButtonText: { color: "#ffffff", marginLeft: 10 },
-  ButtonIconNext: {
+  buttonText: { color: "#ffffff", marginLeft: 10 },
+  buttonIconNext: {
     right: 10,
     color: "#ffffff",
     alignSelf: "flex-end",
     position: "absolute",
   },
-  Switch: {
+  switch: {
     top: -4.5,
     right: 10,
     alignSelf: "flex-end",
     position: "absolute",
     transform: [{ scaleX: 0.9 }, { scaleY: 0.9 }],
   },
-  OptionContainer: {
+  optionContainer: {
     marginTop: 120,
     marginLeft: 15,
     alignItems: "flex-start",
     justifyContent: "flex-start",
   },
   // FIXME: #STYLINGPROBLEM -> Doesn't work for the `settings-options-screens` component styles, find out why
-  OptionButton: {
+  optionButton: {
     backgroundColor: "#262626",
     width: "95.8%",
     paddingTop: 10,
@@ -49,28 +49,28 @@ export const applicationSettingsStyles = StyleSheet.create({
   },
   // FIXME: #STYLINGPROBLEM -> Doesn't work for the `settings-options-screens` component styles, find out why
 
-  OptionButtonIcon: {
+  optionButtonIcon: {
     color: "#ffffff",
     marginLeft: 15,
   },
-  OptionButtonText: { color: "#ffffff", marginLeft: 10 },
+  optionButtonText: { color: "#ffffff", marginLeft: 10 },
   // FIXME: #STYLINGPROBLEM -> Doesn't work for the `settings-options-screens` component styles, find out why
 
-  OptionButtonCheckmark: {
+  optionButtonCheckmark: {
     right: 12,
     bottom: -3,
     color: "#00b300",
     alignSelf: "flex-end",
     position: "absolute",
   },
-  OptionInfoText: {
+  optionInfoText: {
     marginLeft: 2,
     width: "95%",
     alignSelf: "center",
     color: "#4d4d4d",
   },
 
-  NotificationOptionInfoText: {
+  notificationOptionInfoText: {
     marginTop: 5,
     width: "92.5%",
     alignSelf: "center",
