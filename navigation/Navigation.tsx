@@ -109,10 +109,10 @@ const SettingsOptionsStacks = (): JSX.Element => {
   );
 };
 // TODO: #26 -> Split into separate component
-const AuthenticationStacks = (): JSX.Element => {
+const AuthStacks = (): JSX.Element => {
   return (
     <Stack.Navigator
-      initialRouteName="SignUp"
+      initialRouteName="SignIn"
       screenOptions={{
         contentStyle: { backgroundColor: "#fffbfe" }, // NOTE: React Native Paper background colour theme
         headerShown: false,
@@ -128,7 +128,7 @@ export default function Navigation(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Authentication"
+        initialRouteName="Auth"
         // initialRouteName="Root"
         screenOptions={{
           headerShown: false,
@@ -139,7 +139,7 @@ export default function Navigation(): JSX.Element {
           name="SettingsOptions"
           component={SettingsOptionsStacks}
         />
-        <Stack.Screen name="Authentication" component={AuthenticationStacks} />
+        <Stack.Screen name="Auth" component={AuthStacks} />
       </Stack.Navigator>
     </NavigationContainer>
   );
