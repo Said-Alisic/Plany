@@ -77,7 +77,6 @@ Checking events through a calendar. Creating new and deleting existing events in
 
 ### Settings
 
-
 https://github.com/Said-Alisic/Plany/assets/45482255/71aaddd1-fd20-4c6e-86e8-a6e6fd3bc236
 
 [Settings feature video](./docs/images/PlanyCalendarVideo.mov)
