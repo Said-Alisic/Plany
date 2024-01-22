@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../../common/types";
 import { authFormStyles } from "../../../../styles/auth-styles/auth-form-styles";
+import { styles } from "../../../../styles/styles";
 
 export default function SignUpForm(): JSX.Element {
   const [firstname, setFirstname] = useState("");
@@ -70,6 +71,7 @@ export default function SignUpForm(): JSX.Element {
       />
       <Button
         contentStyle={authFormStyles.buttonContent}
+        rippleColor={styles.buttonRipple.color}
         textColor="#ffffff"
         mode="contained"
         onPress={handleSignUp}

@@ -1,5 +1,5 @@
 import { bottomNavigationStyles } from "../../styles/bottom-navigation-styles";
-import CalendarScreen from "../../screens/root-screens/settings/SettingsScreen";
+import CalendarScreen from "../../screens/root-screens/calendar/CalendarScreen";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { SettingsScreen } from "../../screens";
 import { createMaterialBottomTabNavigator } from "react-native-paper/react-navigation";

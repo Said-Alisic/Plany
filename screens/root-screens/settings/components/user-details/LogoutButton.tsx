@@ -1,6 +1,7 @@
 import { IconButton } from "react-native-paper";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import { userDetailsStyles } from "../../../../../styles/settings-styles/user-details-styles";
+import { styles } from "../../../../../styles/styles";
 
 export default function LogoutButton(): JSX.Element {
   return (
@@ -8,6 +9,7 @@ export default function LogoutButton(): JSX.Element {
       style={userDetailsStyles.logoutButton}
       size={20}
       containerColor="#990000"
+      rippleColor={styles.buttonRipple.color}
       mode="contained-tonal"
       icon={() => (
         <MaterialIcon

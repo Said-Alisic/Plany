@@ -27,4 +27,5 @@ export const styles = StyleSheet.create({
     marginRight: 10,
   },
   inlineItems: { flexDirection: "row", alignItems: "center" },
+  buttonRipple: { color: "rgba(255, 255, 255, .20)" },
 });
