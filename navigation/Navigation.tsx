@@ -10,8 +10,7 @@ export default function Navigation(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        // initialRouteName="Auth"
-        initialRouteName="Root"
+        initialRouteName="Auth"
         screenOptions={{
           headerShown: false,
         }}
