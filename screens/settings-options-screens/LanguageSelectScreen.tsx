@@ -13,7 +13,7 @@ export default function LanguageSelectScreen(): JSX.Element {
   // TODO: Add helper method or an enum with all available languages
 
   const languages: { key: string; value: string }[] = Object.entries(
-    Languages
+    Languages,
   ).map(([key, value]) => ({
     key,
     value: formatStringToTitleCase(value),

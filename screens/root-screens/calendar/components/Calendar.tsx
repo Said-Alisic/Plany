@@ -37,7 +37,7 @@ export default function Calendar(): JSX.Element {
       .then((response) => {
         const selectedDateEvents: ICalendarEvent[] = response.data.filter(
           (item: ICalendarEvent) =>
-            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate
+            moment(item.dateAndTime).format("YYYY-MM-DD") === startDate,
         );
 
         setCalendarEvents(selectedDateEvents);
@@ -47,7 +47,7 @@ export default function Calendar(): JSX.Element {
 
         console.error(
           `An error occurred at ${PlanyApiEndpoints.CALENDAR_EVENTS}?date=${date}`,
-          error.message
+          error.message,
         );
       });
   };
