@@ -28,14 +28,13 @@ export default function ThemeSelectScreen(): JSX.Element {
     console.log("Set theme to: ", theme);
   };
 
-  // TODO: #16 -> Move inline styles to a separate styles file
   return (
-    <View style={[styles.container, applicationSettingsStyles.OptionContainer]}>
+    <View style={[styles.container, applicationSettingsStyles.optionContainer]}>
       {themes.map((theme, index) => {
         return (
           <TouchableRipple
             key={index}
-            // FIXME: Check out -> #STYLINGPROBLEM [OptionButton]
+            // FIXME: Check out -> #STYLINGPROBLEM [optionButton]
             style={{
               backgroundColor: "#262626",
               width: "95.8%",
@@ -51,13 +50,13 @@ export default function ThemeSelectScreen(): JSX.Element {
               <IonIcon
                 name={themeIcon(theme)}
                 size={20}
-                // FIXME: Check out -> #STYLINGPROBLEM [OptionButtonIcon]
+                // FIXME: Check out -> #STYLINGPROBLEM [optionButtonIcon]
                 style={{
                   color: "#ffffff",
                   marginLeft: 15,
                 }}
               />
-              <Text style={applicationSettingsStyles.OptionButtonText}>
+              <Text style={applicationSettingsStyles.optionButtonText}>
                 {formatStringToTitleCase(theme)}
               </Text>
               {/* TODO: #FEATURE -> Add logic for setting icon on the currently used Theme enum value */}
@@ -65,7 +64,7 @@ export default function ThemeSelectScreen(): JSX.Element {
                 <IonIcon
                   name="checkmark-outline"
                   size={25}
-                  // FIXME: Check out -> #STYLINGPROBLEM [OptionButtonCheckmark]
+                  // FIXME: Check out -> #STYLINGPROBLEM [optionButtonCheckmark]
 
                   style={{
                     right: 12,
@@ -82,7 +81,7 @@ export default function ThemeSelectScreen(): JSX.Element {
       })}
       <Text
         variant="bodySmall"
-        style={applicationSettingsStyles.OptionInfoText}
+        style={applicationSettingsStyles.optionInfoText}
       >
         If system is selected, then Plany will automatically adjust the theme
         appearance based on your device{"'"}s system settings.

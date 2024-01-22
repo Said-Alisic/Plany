@@ -15,14 +15,14 @@ export default function NotificationSetting(): JSX.Element {
   };
 
   return (
-    <View style={applicationSettingsStyles.SubContainer}>
+    <View style={applicationSettingsStyles.subContainer}>
       <Text
-        style={[styles.mb10, styles.ml10, applicationSettingsStyles.HeaderText]}
+        style={[styles.mb10, styles.ml10, applicationSettingsStyles.headerText]}
         variant="bodyLarge"
       >
         Nofitications
       </Text>
-      <View style={applicationSettingsStyles.Button}>
+      <View style={applicationSettingsStyles.button}>
         <View style={styles.inlineItems}>
           <IonIcon
             name={
@@ -31,9 +31,9 @@ export default function NotificationSetting(): JSX.Element {
                 : "notifications-off-outline"
             }
             size={20}
-            style={applicationSettingsStyles.ButtonIcon}
+            style={applicationSettingsStyles.buttonIcon}
           />
-          <Text style={applicationSettingsStyles.ButtonText}>
+          <Text style={applicationSettingsStyles.buttonText}>
             Enable Notification
           </Text>
           <Switch
@@ -41,13 +41,13 @@ export default function NotificationSetting(): JSX.Element {
             onValueChange={onToggleNotifications}
             trackColor={{ false: "#ffffff", true: "#00b300" }}
             ios_backgroundColor={"#a6a6a6"}
-            style={applicationSettingsStyles.Switch}
+            style={applicationSettingsStyles.switch}
           />
         </View>
       </View>
       <Text
         variant="bodySmall"
-        style={applicationSettingsStyles.NotificationOptionInfoText}
+        style={applicationSettingsStyles.notificationOptionInfoText}
       >
         Enable push notifications, including notification messages, sounds, and
         vibration.

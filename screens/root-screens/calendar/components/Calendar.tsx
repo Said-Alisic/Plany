@@ -21,7 +21,6 @@ export default function Calendar(): JSX.Element {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [calendarEvents, setCalendarEvents] = useState<ICalendarEvent[]>([]);
 
-  // TODO: #9 -> Refactor method logic for better flow
   const handleDateChange: DateChangedCallback = async (date: Moment) => {
     if (date) {
       setSelectedDate(moment(date));

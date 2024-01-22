@@ -1,0 +1,23 @@
+import { IconButton } from "react-native-paper";
+import IonIcon from "react-native-vector-icons/Ionicons";
+import { authComponentStyles } from "../../../../styles/auth-styles/auth-component-styles";
+
+export default function AppleSocialButton(): JSX.Element {
+  // TODO: #FEATURE Add social login provider logic at a later date
+  const handleSocialLogin = (provider: string) => {
+    console.log(`Social login with ${provider}`);
+    // Add your social login logic here
+  };
+
+  return (
+    <IconButton
+      style={authComponentStyles.socialProviderButton}
+      containerColor="#000000"
+      iconColor="#ffffff"
+      size={35}
+      mode="contained"
+      icon={() => <IonIcon name="logo-apple" size={25} color={"#ffffff"} />}
+      onPress={() => handleSocialLogin("Apple")}
+    />
+  );
+}

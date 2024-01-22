@@ -21,16 +21,16 @@ export default function LanguageSetting(): JSX.Element {
   };
 
   return (
-    <View style={applicationSettingsStyles.SubContainer}>
+    <View style={applicationSettingsStyles.subContainer}>
       <Text
-        style={[styles.mb10, styles.ml10, applicationSettingsStyles.HeaderText]}
+        style={[styles.mb10, styles.ml10, applicationSettingsStyles.headerText]}
         variant="bodyLarge"
       >
         Language
       </Text>
       <View>
         <TouchableRipple
-          style={applicationSettingsStyles.Button}
+          style={applicationSettingsStyles.button}
           onPress={handlePress}
           rippleColor="rgba(255, 255, 255, .11)"
         >
@@ -38,13 +38,13 @@ export default function LanguageSetting(): JSX.Element {
             <IonIcon
               name="language-outline"
               size={20}
-              style={applicationSettingsStyles.ButtonIcon}
+              style={applicationSettingsStyles.buttonIcon}
             />
-            <Text style={applicationSettingsStyles.ButtonText}>{language}</Text>
+            <Text style={applicationSettingsStyles.buttonText}>{language}</Text>
             <IonIcon
               name="chevron-forward-outline"
               size={20}
-              style={applicationSettingsStyles.ButtonIconNext}
+              style={applicationSettingsStyles.buttonIconNext}
             />
           </View>
         </TouchableRipple>

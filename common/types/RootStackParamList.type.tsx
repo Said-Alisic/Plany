@@ -4,10 +4,18 @@
 export type RootStackParamList = {
   Calendar: undefined;
   Settings: undefined;
-  SettingsOptions: {
-    screen: string; // or whatever type your screen names are
-  };
   ThemeSelect: undefined;
+  SignIn: undefined;
+  SignUp: undefined;
+  Root: {
+    screen: string;
+  };
+  Auth: {
+    screen: string;
+  };
+  SettingsOptions: {
+    screen: string;
+  };
 };
 
 export default RootStackParamList;
